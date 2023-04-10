@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">VachesDeFrance</string>
+    <string name="Challenge">Challenge</string>
+    <string name="Train">Entrainement</string>
+    <string name="j1"><![CDATA[Challenge Caractéristiques]]></string>
+    <string name="j2"><![CDATA[Challenge Photo]]></string>
+    <string name="Titre">Les Vaches de France</string>
+    <string name="quitter_challenge">Quitter</string>
+    <string name="score">Score : </string>
+    <string name="content_description">ceci est une image de vache</string>
+    <string name="quitter">Quitter</string>
+    <string name="scores">Scores</string>
+    <string name="retour">Retour</string>
+    <string name="region"><u>Région :</u></string>
+    <string name="type"><u>Type :</u></string>
+    <string name="best_score">Meilleurs scores</string>
+    <string name="carac">Caractéristiques</string>
+    <string name="photo">Photographie</string>
+</resources>
