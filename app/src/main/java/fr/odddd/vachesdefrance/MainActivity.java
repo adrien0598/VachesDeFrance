@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
         train.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent otherActivity = new Intent(getApplicationContext(), Train_tab.class);
+                //Intent otherActivity = new Intent(getApplicationContext(), Train_tab.class);
+                Intent otherActivity = new Intent(getApplicationContext(), LvlChoix.class);
                 startActivity(otherActivity);
                 //finish();
             }

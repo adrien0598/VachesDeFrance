@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="lvl"
+            type="fr.odddd.vachesdefrance.domain.Lvl" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/niveau"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text='@{lvl.getNiveauString()}'
+            android:textSize="22sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/nb"/>
+
+        <TextView
+            android:id="@+id/nb"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text='@{lvl.getNb()}'
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/niveau" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -79,7 +79,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
 
-        return db!=null?true:false;
+        return db != null;
     }
 
     /**
@@ -100,6 +100,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         outputStream.flush();
         outputStream.close();
         inputStream.close();
+    }
+
+    public Cursor getNb_lvl(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String requete = "SELECT DISTINCT lvl FROM caracteristiques";
+        Cursor result = db.rawQuery(requete, null);
+        Log.d("requete", requete);
+        return result;
     }
 
     public void openDataBase() throws SQLException {
