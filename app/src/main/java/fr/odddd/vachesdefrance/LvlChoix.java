@@ -1,8 +1,10 @@
 package fr.odddd.vachesdefrance;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import fr.odddd.vachesdefrance.domain.Lvl;
 import fr.odddd.vachesdefrance.recyclerview.LvlAdapter;
@@ -26,7 +29,11 @@ public class LvlChoix extends AppCompatActivity {
     private Cursor l;
     private String[][] donnees;
 
+    public String mode;
+
     private boolean clikable;
+
+    private Intent otherActivity;
 
     DataBaseHelper db;
 
@@ -55,10 +62,24 @@ public class LvlChoix extends AppCompatActivity {
         recyclerView.setAdapter(lvlAdapter);
     }
 
-    private void onItemClick(Lvl selectedVache) {
+    private void onItemClick(Lvl selectedLvl) {
         if (clikable) {
             clikable = false;
-            // démarrer l'activité avec le bon niveau
+            Intent i = getIntent();
+            mode = i.getStringExtra("mode");
+            Log.d("mode", mode);
+
+            if (Objects.equals(mode, "photo")){
+                otherActivity = new Intent(getApplicationContext(), Challenge_image.class);
+                Log.d("level", selectedLvl.getNiveau());
+            }
+            if (Objects.equals(mode, "carac")){
+                otherActivity = new Intent(getApplicationContext(), Challenge.class);
+                Log.d("level", selectedLvl.getNiveau());
+            }
+
+            otherActivity.putExtra("lvl", Integer.valueOf(selectedLvl.getNiveau()));
+            startActivity(otherActivity);
         }
     }
 

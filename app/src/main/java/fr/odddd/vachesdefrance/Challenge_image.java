@@ -20,6 +20,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Challenge_image extends AppCompatActivity {
@@ -55,7 +58,7 @@ public class Challenge_image extends AppCompatActivity {
         lvl = (int) i.getIntExtra("lvl",1);
 
         db = new DataBaseHelper(this);
-        if (lvl <4 ){
+        if (lvl < 7 ){
             l = db.getAll_lvl(lvl);
         }
         else {
@@ -364,9 +367,9 @@ public class Challenge_image extends AppCompatActivity {
     public String[][] CursorToListRd(Cursor curseur){
         String[][] liste_1;
         liste_1 = new String[curseur.getCount()][4];
-        int[] random = melange(curseur.getCount());
+        List<Integer> random = melange(curseur.getCount());
         for (int j = 0; j < curseur.getCount(); j++) {
-            curseur.moveToPosition(random[j]);
+            curseur.moveToPosition(random.get(j));
             liste_1[j][0] = curseur.getString(0);
             liste_1[j][1] = curseur.getString(1);
             liste_1[j][2] = curseur.getString(2);
@@ -375,23 +378,27 @@ public class Challenge_image extends AppCompatActivity {
     }
 
 
-    public int[] melange(int nb){
-        int[] tir = new int[nb];
+    public List<Integer> melange(int nb){
+        List<Integer> tir = new ArrayList<Integer>();
         Random rd = new Random();
-        Log.d("etat", "debut melange");
-        int i = -1;
-        int cont = nb;
 
-        while (cont > 1){
-            while (contains(tir, i)){
-                i = rd.nextInt(nb);
+        Log.d("etat", "debut melange " + nb);
+        tir.add(rd.nextInt(nb));
+        int i = tir.get(0);
+        Log.d("i0", String.valueOf(i));
+        int cont = nb-1;
+        int n = nb+1;
 
+        while (cont > 0){
+            while (contains(tir, i-1)){
+                i = rd.nextInt(n);
             }
-            Log.d("i", String.valueOf(i));
-            tir[cont-1] = i;
+            Log.d("cont", String.valueOf(cont));
+            Log.d("i-1", String.valueOf(i-1));
+            tir.add(i - 1);
             cont -= 1;
         }
-        tir[0] = 0;
+        //tir[0] = 0;
         Log.d("etat", "fin melange");
         return tir;
     }
@@ -403,7 +410,7 @@ public class Challenge_image extends AppCompatActivity {
         int i = -1;
 
         while (nb > 0){
-            while (contains(tir, i)){
+            while (contains2(tir, i)){
                 i = rd.nextInt(pool.length);
             }
             tir[nb-1] = i;
@@ -414,7 +421,17 @@ public class Challenge_image extends AppCompatActivity {
         return tir_name;
     }
 
-    private boolean contains(int[] liste, int a) {
+    private boolean contains(List<Integer> liste, int a) {
+        if (a == -1){
+            return true;
+        }
+        for (int i = 0; i < liste.size(); i ++){
+            if (liste.get(i) == a)
+                return true;}
+        return false;
+    }
+
+    private boolean contains2(int[] liste, int a) {
         if (a == -1){
             return true;
         }

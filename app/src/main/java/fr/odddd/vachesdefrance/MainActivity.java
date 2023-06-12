@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
         challenge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent otherActivity = new Intent(getApplicationContext(), Menu2.class);
+                //Intent otherActivity = new Intent(getApplicationContext(), Menu2.class);
+                Intent otherActivity = new Intent(getApplicationContext(), ModeChoix.class);
                 startActivity(otherActivity);
                 //finish();
             }
@@ -53,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
         train.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent otherActivity = new Intent(getApplicationContext(), Train_tab.class);
-                Intent otherActivity = new Intent(getApplicationContext(), LvlChoix.class);
+                Intent otherActivity = new Intent(getApplicationContext(), Train_tab.class);
                 startActivity(otherActivity);
                 //finish();
             }
@@ -70,9 +70,10 @@ public class MainActivity extends AppCompatActivity {
 
         quitter.setOnClickListener(new View.OnClickListener() {
             @Override
+            //public void onClick(View v) {System.exit(0);}
             public void onClick(View v) {
-                System.exit(0);
-            }
+            finish();
+        }
         });
 
     }

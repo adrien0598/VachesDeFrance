@@ -55,7 +55,7 @@ public class Challenge extends AppCompatActivity {
         lvl = (int) i.getIntExtra("lvl",1);
 
         db = new DataBaseHelper(this);
-        if (lvl < 4 ){
+        if (lvl < 7 ){
             l = db.getAll_lvl(lvl);
         }
         else {

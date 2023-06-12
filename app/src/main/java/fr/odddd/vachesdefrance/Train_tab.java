@@ -122,6 +122,21 @@ public class Train_tab extends AppCompatActivity {
             l.moveToPosition(j);
             list.add(new Vache(l.getString(0), raceToId(l.getString(0)), 3));
         }
+        l = db.getAll_lvl(4);
+        for (int j = 0; j < l.getCount(); j++) {
+            l.moveToPosition(j);
+            list.add(new Vache(l.getString(0), raceToId(l.getString(0)), 4));
+        }
+        l = db.getAll_lvl(5);
+        for (int j = 0; j < l.getCount(); j++) {
+            l.moveToPosition(j);
+            list.add(new Vache(l.getString(0), raceToId(l.getString(0)), 5));
+        }
+        l = db.getAll_lvl(6);
+        for (int j = 0; j < l.getCount(); j++) {
+            l.moveToPosition(j);
+            list.add(new Vache(l.getString(0), raceToId(l.getString(0)), 6));
+        }
 
         return list;
     }

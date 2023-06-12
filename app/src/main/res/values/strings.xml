@@ -16,4 +16,5 @@
     <string name="best_score">Meilleurs scores</string>
     <string name="carac">Caractéristiques</string>
     <string name="photo">Photographie</string>
+    <string name="niv_select">Sélection du mode</string>
 </resources>

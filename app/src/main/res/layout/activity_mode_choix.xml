@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ModeChoix">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_haut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_mid1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_mid2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.53" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_mid3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.57" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_mid4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_gauche"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_droite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_sup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.78" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_sup2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.86" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_mid_vert1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.485" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_mid_vert2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.515" />
+
+    <Button
+        android:id="@+id/j1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/j1"
+        app:layout_constraintTop_toTopOf="@id/guideline_mid1"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_gauche"
+        app:layout_constraintRight_toRightOf="@id/guideline_droite"
+        app:layout_constraintBottom_toTopOf="@id/guideline_mid2"
+        app:strokeWidth = "2dp"
+        app:strokeColor = "@color/green1"
+        style="?attr/materialButtonOutlinedStyle"
+        />
+
+    <Button
+        android:id="@+id/j2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/j2"
+        app:layout_constraintTop_toTopOf="@id/guideline_mid3"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_gauche"
+        app:layout_constraintRight_toRightOf="@id/guideline_droite"
+        app:layout_constraintBottom_toTopOf="@id/guideline_mid4"
+        app:strokeWidth = "2dp"
+        app:strokeColor = "@color/green1"
+        style="?attr/materialButtonOutlinedStyle"/>
+
+    <TextView
+        android:id="@+id/level"
+        android:textColor="@color/brown"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/niv_select"
+        app:layout_constraintBottom_toTopOf="@+id/j1"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_gauche"
+        app:layout_constraintRight_toRightOf="@id/guideline_droite"
+        app:layout_constraintTop_toTopOf="@id/guideline_haut"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
