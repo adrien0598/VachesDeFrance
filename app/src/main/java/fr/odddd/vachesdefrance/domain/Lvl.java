@@ -29,7 +29,7 @@ public class Lvl {
     }
 
     public String getNb() {
-        return nb;
+        return "Vaches : " +nb;
     }
 
     public void setNb(String nb) {

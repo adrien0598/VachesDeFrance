@@ -50,12 +50,12 @@ public class LvlChoix extends AppCompatActivity {
 
         clikable = true;
 
-        List<Lvl> list_vaches = getListData();
+        List<Lvl> list_lvls = getListData();
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         LvlAdapter lvlAdapter = new LvlAdapter(
-                list_vaches,
-                vache -> {
-                    onItemClick(vache);
+                list_lvls,
+                lvl -> {
+                    onItemClick(lvl);
                     return null;
                 });
 
@@ -80,6 +80,7 @@ public class LvlChoix extends AppCompatActivity {
 
             otherActivity.putExtra("lvl", Integer.valueOf(selectedLvl.getNiveau()));
             startActivity(otherActivity);
+            this.finish();
         }
     }
 
@@ -94,7 +95,7 @@ public class LvlChoix extends AppCompatActivity {
         for (int i = 1; i <= nb; i++) {
             list.add(new Lvl("" + getNbV(i), "" + i, getLock(i))); // la honte un peu
         }
-
+        list.add(new Lvl(db.getAll().getCount() + "", "" + (nb+1), getLock(nb+1)));
         return list;
     }
 
@@ -106,7 +107,8 @@ public class LvlChoix extends AppCompatActivity {
 
     private int getNbV(int lvl) {
         int n = 0;
-
+        db = new DataBaseHelper(this);
+        n = db.getAll_lvl(lvl).getCount();
         return n;
     }
 
