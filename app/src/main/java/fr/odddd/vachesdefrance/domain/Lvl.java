@@ -6,15 +6,15 @@ public class Lvl {
 
     private String nb;
     private String niveau;
-    private boolean block;
+    private Drawable block;
 
-    public Lvl(String nb, String niveau, boolean block) {
+    public Lvl(String nb, String niveau, Drawable block) {
         this.nb= nb;
         this.niveau= niveau;
         this.block = block;
     }
 
-    public boolean getLock(){return block;}
+    public Drawable getLock(){return block;}
 
     public String getNiveau() {
         return niveau;
