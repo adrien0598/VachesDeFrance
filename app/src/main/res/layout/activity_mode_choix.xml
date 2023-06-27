@@ -104,8 +104,7 @@
         app:layout_constraintRight_toRightOf="@id/guideline_droite"
         app:layout_constraintBottom_toTopOf="@id/guideline_mid4"
         app:strokeWidth = "2dp"
-        app:strokeColor = "@color/green1"
-        style="?attr/materialButtonOutlinedStyle"/>
+        app:strokeColor = "@color/green1"/>
 
     <TextView
         android:id="@+id/level"
