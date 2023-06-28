@@ -17,4 +17,12 @@
     <string name="carac">Caractéristiques</string>
     <string name="photo">Photographie</string>
     <string name="niv_select">Sélection du mode</string>
+
+    <!--Title action bar-->
+    <string name="title_app_bar_scores">Meilleurs scores</string>
+    <string name="title_app_bar_entrainment">Entrainement</string>
+    <string name="title_app_bar_challenge_mode_choice">Sélection du mode</string>
+    <string name="title_app_bar_challenge_lvl_choice">Challenge</string>
+    <string name="title_app_bar_challenge_cara">Challenge caractéristiques</string>
+    <string name="title_app_bar_challenge_photo">Challenge photos</string>
 </resources>

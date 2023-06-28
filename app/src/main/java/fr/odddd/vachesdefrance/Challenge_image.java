@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import fr.odddd.vachesdefrance.utils.TitleUtils;
+
 public class Challenge_image extends AppCompatActivity {
 
     private Cursor l;
@@ -51,10 +53,11 @@ public class Challenge_image extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
 
-        // showing the back button in action bar
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        new TitleUtils().setTitle(
+                getSupportActionBar(),
+                R.string.title_app_bar_challenge_photo,
+                true
+        );
 
         Intent i = getIntent();
         lvl = (int) i.getIntExtra("lvl",1);
