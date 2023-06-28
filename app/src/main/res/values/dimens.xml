@@ -31,4 +31,7 @@
     <dimen name="size_score">40dp</dimen>
 
 
+    <dimen name="height_big_button">100dp</dimen>
+
+
 </resources>
