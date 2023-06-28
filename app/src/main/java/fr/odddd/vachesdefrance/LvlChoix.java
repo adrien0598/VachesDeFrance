@@ -19,6 +19,7 @@ import java.util.Objects;
 
 import fr.odddd.vachesdefrance.domain.Lvl;
 import fr.odddd.vachesdefrance.recyclerview.LvlAdapter;
+import fr.odddd.vachesdefrance.utils.TitleUtils;
 
 public class LvlChoix extends AppCompatActivity {
 
@@ -39,12 +40,11 @@ public class LvlChoix extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lvl_choix);
 
-        ActionBar actionBar = getSupportActionBar();
-
-        // showing the back button in action bar
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        new TitleUtils().setTitle(
+                getSupportActionBar(),
+                R.string.title_app_bar_challenge_lvl_choice,
+                true
+        );
 
         Intent i = getIntent();
         mode = i.getStringExtra("mode");

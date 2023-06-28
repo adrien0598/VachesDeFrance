@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import fr.odddd.vachesdefrance.utils.TitleUtils;
+
 public class ModeChoix extends AppCompatActivity {
 
     private Button j1;
@@ -24,12 +26,11 @@ public class ModeChoix extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mode_choix);
 
-        ActionBar actionBar = getSupportActionBar();
-
-        // showing the back button in action bar
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        new TitleUtils().setTitle(
+                getSupportActionBar(),
+                R.string.title_app_bar_challenge_mode_choice,
+                true
+        );
 
         this.j1 = (Button)findViewById(R.id.j1);
         this.j2 = (Button)findViewById(R.id.j2);

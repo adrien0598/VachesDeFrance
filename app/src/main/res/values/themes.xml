@@ -15,6 +15,7 @@
         <!-- Customize your theme here. -->
 
         <item name="toolbarStyle">@style/Theme.VachesDeFrance.Toolbar</item>
+        <item name="android:textViewStyle">@style/Theme.VachesDeFrance.TextAppearance.Content</item>
 
     </style>
 </resources>
