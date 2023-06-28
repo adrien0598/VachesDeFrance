@@ -49,7 +49,9 @@ public class Challenge extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
 
         // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         Intent i = getIntent();
         lvl = (int) i.getIntExtra("lvl",1);
