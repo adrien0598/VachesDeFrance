@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.VachesDeFrance" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.VachesDeFrance" parent="Theme.Material3.Light">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green1</item>
         <item name="colorPrimaryVariant">@color/green2</item>
@@ -9,8 +9,12 @@
         <item name="colorSecondary">@color/lightbrown</item>
         <item name="colorSecondaryVariant">@color/brown</item>
         <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnBackground">#312e28</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/green1</item>
         <!-- Customize your theme here. -->
+
+        <item name="toolbarStyle">@style/Theme.VachesDeFrance.Toolbar</item>
+
     </style>
 </resources>

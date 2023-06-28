@@ -52,7 +52,9 @@ public class Train_tab extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
 
         // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         this.card = (CardView) findViewById(R.id.card);
         this.retour = (Button) findViewById(R.id.Retour);

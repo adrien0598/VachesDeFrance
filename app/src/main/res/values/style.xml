@@ -29,4 +29,13 @@
         <item name="android:textSize">20sp</item>
         <item name="android:backgroundTint">@drawable/bouton1_geom_clic</item>
     </style>
+
+    <style name="Theme.VachesDeFrance.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/green1</item>
+    </style>
+
+    <style name="Theme.VachesDeFrance.TextAppearance.TitleH2" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
 </resources>
