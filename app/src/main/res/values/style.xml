@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ButtonTest" parent="Widget.AppCompat.Button">
+    <style name="ButtonType1" parent="Widget.AppCompat.Button">
         <item name="android:textColor">@color/white</item>
-        <item name="android:background">@color/white</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:backgroundTint">@color/clic</item>
+        <item name="android:background">@drawable/bouton1_geom</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:backgroundTint">@drawable/bouton1_geom_clic</item>
+    </style>
+    <style name="ButtonType2" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bouton1_geom</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:backgroundTint">@drawable/bouton1_geom_clic</item>
+    </style>
+    <style name="ButtonLvlLock" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/border_loc</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:backgroundTint">@drawable/bouton1_geom_clic</item>
+    </style>
+    <style name="ButtonLvlUnlock" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/border_unl</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:backgroundTint">@drawable/bouton1_geom_clic</item>
+    </style>
+    <style name="ButtonLvlCompleted" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/border</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:backgroundTint">@drawable/bouton1_geom_clic</item>
     </style>
 </resources>

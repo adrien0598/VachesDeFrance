@@ -83,7 +83,7 @@
 
     <TextView
         android:id="@+id/titre"
-        android:textSize="12pt"
+        android:textSize="25sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Titre"
@@ -97,28 +97,22 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/Train"
-        android:textSize="20dp"
-        android:clickable="true"
-        android:focusable="true"
         app:layout_constraintLeft_toLeftOf="@+id/guideline_gauche"
         app:layout_constraintRight_toRightOf="@+id/guideline_droite"
         app:layout_constraintTop_toBottomOf="@+id/guideline_mid1"
         app:layout_constraintBottom_toTopOf="@+id/guideline_mid2"
-        android:background="@drawable/bouton1_geom"/>
+        style="@style/ButtonType1"/>
 
     <Button
         android:id="@+id/challenge"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/Challenge"
-        android:textSize="20dp"
-        android:clickable="true"
-        android:focusable="true"
+        android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="@+id/guideline_gauche"
         app:layout_constraintRight_toRightOf="@+id/guideline_droite"
         app:layout_constraintTop_toBottomOf="@+id/guideline_mid3"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_mid4"
-        android:background="@drawable/bouton1_geom"/>
+        app:layout_constraintBottom_toTopOf="@+id/guideline_mid4"/>
 
     <Button
         android:id="@+id/quitter"
