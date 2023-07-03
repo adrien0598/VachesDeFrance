@@ -81,16 +81,23 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.515" />
 
-    <TextView
-        android:id="@+id/titre"
-        style="@style/Theme.VachesDeFrance.TextAppearance.TitleH2"
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Titre"
+        android:src="@drawable/title"
         app:layout_constraintBottom_toTopOf="@+id/guideline_mid1"
         app:layout_constraintLeft_toLeftOf="@+id/guideline_gauche"
         app:layout_constraintRight_toRightOf="@+id/guideline_droite"
         app:layout_constraintTop_toTopOf="@+id/guideline_haut"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/size_cow"
+        android:layout_height="@dimen/size_cow"
+        app:layout_constraintEnd_toEndOf="@id/train"
+        app:layout_constraintBottom_toTopOf="@id/train"
+        android:layout_marginBottom="@dimen/margin_bottom_cow"
+        android:layout_marginEnd="@dimen/size_large"
+        android:src="@drawable/vache"/>
 
     <Button
         android:id="@+id/train"
