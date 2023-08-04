@@ -7,15 +7,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -68,7 +63,7 @@ public class LvlChoix extends AppCompatActivity {
     }
 
     private void onItemClick(Lvl selectedLvl) {
-        if (clikable) {
+        if (clikable & !selectedLvl.getIsBlocked()) {
             clikable = false;
 
             if (Objects.equals(mode, "photo")){
@@ -95,13 +90,13 @@ public class LvlChoix extends AppCompatActivity {
         l = db.getNb_lvl(); // nombre de niveaux
         int nb = l.getCount();
         for (int i = 1; i <= nb; i++) {
-            list.add(new Lvl("" + getNbV(i), "" + i, getLock(i))); // la honte un peu
+            list.add(new Lvl("" + getNbV(i), "" + i, getLvlDrawable(i), getLock(i))); // la honte un peu
         }
-        list.add(new Lvl(db.getAll().getCount() + "", "" + (nb+1), getLock(nb+1)));
+        list.add(new Lvl(db.getAll().getCount() + "", "" + (nb+1), getLvlDrawable(nb+1), getLock(nb+1)));
         return list;
     }
 
-    private Drawable getLock(int lvl) {
+    private Drawable getLvlDrawable(int lvl) {
         SharedPreferences score = null;
         if (Objects.equals(mode, "photo")){
             score = getSharedPreferences("Score_photo", 0); // recup des meilleurs score photo absolu
@@ -110,9 +105,9 @@ public class LvlChoix extends AppCompatActivity {
             score = getSharedPreferences("Score_carac", 0);
         }
         int s = score.getInt(String.valueOf(lvl), -1);
-        int ss = getNbV(lvl);
+        int s_max = getNbV(lvl);
 
-        if(s >= ss){
+        if(s >= s_max){
             int resId = getResources().getIdentifier("border", "drawable", getPackageName());
             Drawable drawable  = getDrawable(resId);
             return drawable;
@@ -129,6 +124,23 @@ public class LvlChoix extends AppCompatActivity {
         int resId = getResources().getIdentifier("border_loc", "drawable", getPackageName());
         Drawable drawable  = getDrawable(resId);
         return drawable;
+    }
+
+    private Boolean getLock(int lvl) {
+        SharedPreferences score = null;
+        if (Objects.equals(mode, "photo")){
+            score = getSharedPreferences("Score_photo", 0); // recup des meilleurs score photo absolu
+        }
+        else if (Objects.equals(mode, "carac")) {
+            score = getSharedPreferences("Score_carac", 0);
+        }
+        int s = score.getInt(String.valueOf(lvl), -1);
+        int s_max = getNbV(lvl);
+
+        if(s >= s_max | lvl == 1 | score.getInt(String.valueOf(lvl-1), -1) >= getNbV(lvl-1)){
+            return Boolean.FALSE;
+        }
+        return Boolean.TRUE;
     }
 
     private int getNbV(int lvl) {

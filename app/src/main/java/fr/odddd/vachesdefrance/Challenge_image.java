@@ -326,7 +326,7 @@ public class Challenge_image extends AppCompatActivity {
             if (settings.getInt(String.valueOf(lvl), -1) < bonne_rep){
                 SharedPreferences.Editor editor = settings.edit();
                 editor.putInt(String.valueOf(lvl), bonne_rep);
-                editor.commit();
+                editor.apply();
                 Log.d("score", "nouveau record");
             }
 
@@ -336,7 +336,7 @@ public class Challenge_image extends AppCompatActivity {
             int n = score_rel.getInt(String.valueOf(lvl*2), 0);
             editor.putInt(String.valueOf((lvl*2)-1), a+bonne_rep);
             editor.putInt(String.valueOf(lvl*2), n+1);
-            editor.commit();
+            editor.apply();
 
 
             ConstraintLayout lay = findViewById(R.id.la);
