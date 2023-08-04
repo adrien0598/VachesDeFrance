@@ -7,15 +7,17 @@ public class Lvl {
     private String nb;
     private String niveau;
     private Drawable block;
+    private boolean isblocked;
 
-    public Lvl(String nb, String niveau, Drawable block) {
+    public Lvl(String nb, String niveau, Drawable block, boolean isblocked) {
         this.nb= nb;
         this.niveau= niveau;
         this.block = block;
+        this.isblocked = isblocked;
     }
 
     public Drawable getLock(){return block;}
-
+    public Boolean getIsBlocked(){return isblocked;}
     public String getNiveau() {
         return niveau;
     }

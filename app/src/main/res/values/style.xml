@@ -4,7 +4,6 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@drawable/bouton1_geom</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:backgroundTint">@drawable/bouton1_geom_clic</item>
     </style>
     <style name="ButtonType2" parent="Widget.AppCompat.Button">
         <item name="android:textColor">@color/white</item>
