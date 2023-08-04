@@ -18,6 +18,7 @@
         android:id="@+id/j1"
         style="@style/Theme.VachesDeFrance.Button.Outlined"
         android:layout_width="match_parent"
+        android:textSize="@dimen/text_size_large"
         android:layout_height="@dimen/height_big_button"
         android:layout_marginStart="@dimen/size_medium"
         android:layout_marginEnd="@dimen/size_medium"
@@ -26,6 +27,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/j2"
+        style="@style/Theme.VachesDeFrance.Button"
+        android:textSize="@dimen/text_size_large"
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/size_medium"
         android:layout_height="@dimen/height_big_button"

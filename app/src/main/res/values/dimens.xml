@@ -31,10 +31,10 @@
     <dimen name="size_score">40dp</dimen>
 
     <dimen name="size_cow">40dp</dimen>
-    <dimen name="margin_bottom_cow">-9dp</dimen>
+    <dimen name="margin_bottom_cow">-13dp</dimen>
 
 
-    <dimen name="height_big_button">100dp</dimen>
+    <dimen name="height_big_button">160dp</dimen>
 
 
 </resources>

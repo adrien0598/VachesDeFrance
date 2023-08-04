@@ -64,8 +64,7 @@
         app:layout_constraintLeft_toLeftOf="@id/guideline7"
         app:layout_constraintRight_toRightOf="@id/guideline5a"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:strokeWidth = "2dp"
-        style="?attr/materialButtonOutlinedStyle"/>
+        style="@style/Theme.VachesDeFrance.Button.Outlined"/>
     <Button
         android:id="@+id/c2"
         android:layout_width="0dp"
@@ -75,8 +74,7 @@
         app:layout_constraintLeft_toLeftOf="@id/guideline5b"
         app:layout_constraintRight_toRightOf="@id/guideline8"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:strokeWidth = "2dp"
-        style="?attr/materialButtonOutlinedStyle"/>
+        style="@style/Theme.VachesDeFrance.Button.Outlined"/>
     <Button
         android:id="@+id/c3"
         android:layout_width="0dp"
@@ -86,8 +84,7 @@
         app:layout_constraintLeft_toLeftOf="@id/guideline5b"
         app:layout_constraintRight_toRightOf="@id/guideline8"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:strokeWidth = "2dp"
-        style="?attr/materialButtonOutlinedStyle"/>
+        style="@style/Theme.VachesDeFrance.Button.Outlined"/>
     <Button
         android:id="@+id/c4"
         android:layout_width="0dp"
@@ -97,8 +94,7 @@
         app:layout_constraintLeft_toLeftOf="@id/guideline7"
         app:layout_constraintRight_toRightOf="@id/guideline5a"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:strokeWidth = "2dp"
-        style="?attr/materialButtonOutlinedStyle"/>
+        style="@style/Theme.VachesDeFrance.Button.Outlined"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
