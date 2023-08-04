@@ -42,6 +42,9 @@ public class Challenge_image extends AppCompatActivity {
     public int bonne_rep = 0;
     private int lvl;
     private TextView fin;
+    private boolean clickable;
+
+
 
 
     @Override
@@ -88,171 +91,201 @@ public class Challenge_image extends AppCompatActivity {
         good = rd.nextInt(4)+1;
         eachTurn(nb_rep);
 
-        int duration = 750;
-
+        int duration_f = 750;
+        int duration_t = 450;
+        clickable = true;
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("good", String.valueOf(good));
-                Log.d("good", String.valueOf(nb_rep));
-                if(good == 1){
-                    nb_rep ++;
-                    bonne_rep ++;
-                    good = rd.nextInt(4)+1;
-                    eachTurn(nb_rep);
-                }
-                else {
-                    c1.startAnimation(false1);
-                    c1.setBackgroundColor(Color.RED);
-                    switch (good){
-                        case 2 :
-                            //c2.startAnimation(true1);
-                            c2.setBackgroundColor(Color.GREEN);
-                            break;
-                        case 3 :
-                            //c3.startAnimation(true1);
-                            c3.setBackgroundColor(Color.GREEN);
-                            break;
-                        case 4 :
-                            //c4.startAnimation(true1);
-                            c4.setBackgroundColor(Color.GREEN);
-
-                            break;
+                if(clickable){
+                    clickable = false;
+                    if(good == 1){
+                        nb_rep ++;
+                        bonne_rep ++;
+                        good = rd.nextInt(4)+1;
+                        c1.setBackgroundColor(Color.GREEN);
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable(){
+                            public void run() {
+                                eachTurn(nb_rep);
+                            }
+                        }, duration_t); //delay is here
                     }
+                    else {
+                        c1.startAnimation(false1);
+                        c1.setBackgroundColor(Color.RED);
+                        switch (good){
+                            case 2 :
+                                //c2.startAnimation(true1);
+                                c2.setBackgroundColor(Color.GREEN);
+                                break;
+                            case 3 :
+                                //c3.startAnimation(true1);
+                                c3.setBackgroundColor(Color.GREEN);
+                                break;
+                            case 4 :
+                                //c4.startAnimation(true1);
+                                c4.setBackgroundColor(Color.GREEN);
 
-                    nb_rep ++;
-                    good = rd.nextInt(4)+1;
-
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable(){
-                        public void run() {
-                            eachTurn(nb_rep);
+                                break;
                         }
-                    }, duration); //delay is here
 
+                        nb_rep ++;
+                        good = rd.nextInt(4)+1;
+
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable(){
+                            public void run() {
+                                eachTurn(nb_rep);
+                            }
+                        }, duration_f); //delay is here
+                    }
+                    clickable = true;
                 }
-
             }
-
         });
 
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("good", String.valueOf(good));
-                Log.d("good", String.valueOf(nb_rep));
-                if(good == 2){
-                    nb_rep ++;
-                    bonne_rep ++;
-                    good = rd.nextInt(4)+1;
-                    eachTurn(nb_rep);
-                }
-                else {
-                    c2.startAnimation(false1);
-                    c2.setBackgroundColor(Color.RED);
-                    switch (good){
-                        case 1 :
-                            //c1.startAnimation(true1);
-                            c1.setBackgroundColor(Color.GREEN);
-                            break;
-                        case 3 :
-                            //c3.startAnimation(true1);
-                            c3.setBackgroundColor(Color.GREEN);
-                            break;
-                        case 4 :
-                            //c4.startAnimation(true1);
-                            c4.setBackgroundColor(Color.GREEN);
-                            break;
+                if(clickable) {
+                    clickable = false;
+                    if(good == 2){
+                        nb_rep ++;
+                        bonne_rep ++;
+                        good = rd.nextInt(4)+1;
+                        c2.setBackgroundColor(Color.GREEN);
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable(){
+                            public void run() {
+                                eachTurn(nb_rep);
+                            }
+                        }, duration_t); //delay is here
                     }
-
-                    nb_rep ++;
-                    good = rd.nextInt(4)+1;
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable(){
-                        public void run() {
-                            eachTurn(nb_rep);
+                    else {
+                        c2.startAnimation(false1);
+                        c2.setBackgroundColor(Color.RED);
+                        switch (good){
+                            case 1 :
+                                //c1.startAnimation(true1);
+                                c1.setBackgroundColor(Color.GREEN);
+                                break;
+                            case 3 :
+                                //c3.startAnimation(true1);
+                                c3.setBackgroundColor(Color.GREEN);
+                                break;
+                            case 4 :
+                                //c4.startAnimation(true1);
+                                c4.setBackgroundColor(Color.GREEN);
+                                break;
                         }
-                    }, duration); //delay is here
+
+                        nb_rep ++;
+                        good = rd.nextInt(4)+1;
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable(){
+                            public void run() {
+                                eachTurn(nb_rep);
+                            }
+                        }, duration_f); //delay is here
+                    }
+                    clickable = true;
                 }
             }
         });
         c3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("good", String.valueOf(good));
-                Log.d("good", String.valueOf(nb_rep));
-                if(good == 3){
-                    nb_rep ++;
-                    bonne_rep ++;
-                    good = rd.nextInt(4)+1;
-                    eachTurn(nb_rep);
-                }
-                else {
-                    c3.startAnimation(false1);
-                    c3.setBackgroundColor(Color.RED);
-                    switch (good){
-                        case 2 :
-                            //c2.startAnimation(true1);
-                            c2.setBackgroundColor(Color.GREEN);
-                            break;
-                        case 1 :
-                            //c1.startAnimation(true1);
-                            c1.setBackgroundColor(Color.GREEN);
-                            break;
-                        case 4 :
-                            //c4.startAnimation(true1);
-                            c4.setBackgroundColor(Color.GREEN);
-                            break;
+                if(clickable) {
+                    clickable = false;
+                    if(good == 3){
+                        nb_rep ++;
+                        bonne_rep ++;
+                        good = rd.nextInt(4)+1;
+                        c3.setBackgroundColor(Color.GREEN);
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable(){
+                            public void run() {
+                                eachTurn(nb_rep);
+                            }
+                        }, duration_t); //delay is here
                     }
-
-                    nb_rep ++;
-                    good = rd.nextInt(4)+1;
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable(){
-                        public void run() {
-                            eachTurn(nb_rep);
+                    else {
+                        c3.startAnimation(false1);
+                        c3.setBackgroundColor(Color.RED);
+                        switch (good){
+                            case 2 :
+                                //c2.startAnimation(true1);
+                                c2.setBackgroundColor(Color.GREEN);
+                                break;
+                            case 1 :
+                                //c1.startAnimation(true1);
+                                c1.setBackgroundColor(Color.GREEN);
+                                break;
+                            case 4 :
+                                //c4.startAnimation(true1);
+                                c4.setBackgroundColor(Color.GREEN);
+                                break;
                         }
-                    }, duration); //delay is here
+
+                        nb_rep ++;
+                        good = rd.nextInt(4)+1;
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable(){
+                            public void run() {
+                                eachTurn(nb_rep);
+                            }
+                        }, duration_f); //delay is here
+                    }
+                    clickable = true;
                 }
             }
         });
         c4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("good", String.valueOf(good));
-                Log.d("good", String.valueOf(nb_rep));
-                if(good == 4){
-                    nb_rep ++;
-                    bonne_rep ++;
-                    good = rd.nextInt(4)+1;
-                    eachTurn(nb_rep);
-                }
-                else {
-                    c4.startAnimation(false1);
-                    c4.setBackgroundColor(Color.RED);
-                    switch (good){
-                        case 2 :
-                            //c2.startAnimation(true1);
-                            c2.setBackgroundColor(Color.GREEN);
-                            break;
-                        case 3 :
-                            //c3.startAnimation(true1);
-                            c3.setBackgroundColor(Color.GREEN);
-                            break;
-                        case 1 :
-                            //c1.startAnimation(true1);
-                            c1.setBackgroundColor(Color.GREEN);
-                            break;
+                if(clickable) {
+                    clickable = false;
+                    if(good == 4){
+                        nb_rep ++;
+                        bonne_rep ++;
+                        good = rd.nextInt(4)+1;
+                        c4.setBackgroundColor(Color.GREEN);
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable(){
+                            public void run() {
+                                eachTurn(nb_rep);
+                            }
+                        }, duration_t); //delay is here
                     }
-
-                    nb_rep ++;
-                    good = rd.nextInt(4)+1;
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable(){
-                        public void run() {
-                            eachTurn(nb_rep);
+                    else {
+                        c4.startAnimation(false1);
+                        c4.setBackgroundColor(Color.RED);
+                        switch (good){
+                            case 2 :
+                                //c2.startAnimation(true1);
+                                c2.setBackgroundColor(Color.GREEN);
+                                break;
+                            case 3 :
+                                //c3.startAnimation(true1);
+                                c3.setBackgroundColor(Color.GREEN);
+                                break;
+                            case 1 :
+                                //c1.startAnimation(true1);
+                                c1.setBackgroundColor(Color.GREEN);
+                                break;
                         }
-                    }, duration); //delay is here
+
+                        nb_rep ++;
+                        good = rd.nextInt(4)+1;
+                        Handler handler = new Handler();
+                        handler.postDelayed(new Runnable(){
+                            public void run() {
+                                eachTurn(nb_rep);
+                            }
+                        }, duration_f); //delay is here
+                    }
+                    clickable = true;
                 }
             }
         });
