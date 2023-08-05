@@ -11,16 +11,15 @@
 
     <TextView
         android:id="@+id/question"
-        style="@style/Theme.VachesDeFrance.TextAppearance.TitleH2"
+        style="@style/Theme.VachesDeFrance.TextAppearance.Carac"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:lineSpacingExtra="@dimen/text_size_large"
         app:layout_constraintBottom_toBottomOf="@id/guideline3"
         app:layout_constraintLeft_toLeftOf="@id/guideline7"
         app:layout_constraintRight_toRightOf="@id/guideline8"
         app:layout_constraintTop_toTopOf="@id/guideline2"
-        tools:text="none" />
+        tools:text="none \n none" />
 
 
     <TextView

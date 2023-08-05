@@ -40,6 +40,11 @@
         <item name="android:textColor">?attr/colorOnBackground</item>
     </style>
 
+    <style name="Theme.VachesDeFrance.TextAppearance.Carac" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">@dimen/text_size_carac</item>
+        <item name="android:textColor">@color/grey2</item>
+    </style>
+
     <style name="Theme.VachesDeFrance.TextAppearance.TitleH3" parent="TextAppearance.Material3.LabelLarge">
         <item name="android:textSize">@dimen/text_size_medium</item>
         <item name="android:textColor">?attr/colorOnBackground</item>
