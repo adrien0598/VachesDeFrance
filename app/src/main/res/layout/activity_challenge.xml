@@ -48,7 +48,7 @@
 
     <Button
         android:id="@+id/c1"
-        style="@style/Theme.VachesDeFrance.Button.Outlined"
+        style="@style/Theme.VachesDeFrance.Button.Answer"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
@@ -59,7 +59,7 @@
 
     <Button
         android:id="@+id/c2"
-        style="@style/Theme.VachesDeFrance.Button.Outlined"
+        style="@style/Theme.VachesDeFrance.Button.Answer"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
@@ -70,7 +70,7 @@
 
     <Button
         android:id="@+id/c3"
-        style="@style/Theme.VachesDeFrance.Button.Outlined"
+        style="@style/Theme.VachesDeFrance.Button.Answer"
         android:layout_width="0dp"
         android:layout_height="0dp"
         tools:text="choix 3"
@@ -81,7 +81,7 @@
 
     <Button
         android:id="@+id/c4"
-        style="@style/Theme.VachesDeFrance.Button.Outlined"
+        style="@style/Theme.VachesDeFrance.Button.Answer"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"

@@ -102,7 +102,8 @@ public class Challenge extends AppCompatActivity {
                         nb_rep ++;
                         bonne_rep ++;
                         good = rd.nextInt(4)+1;
-                        c1.setBackgroundColor(Color.GREEN);
+                        c1.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                        c1.setTextColor(Color.WHITE);
                         Handler handler = new Handler();
                         handler.postDelayed(new Runnable(){
                             public void run() {
@@ -112,20 +113,23 @@ public class Challenge extends AppCompatActivity {
                     }
                     else {
                         c1.startAnimation(false1);
-                        c1.setBackgroundColor(Color.RED);
+                        c1.setBackgroundColor(getResources().getColor(R.color.bad_answer));
+                        c1.setTextColor(Color.WHITE);
                         switch (good){
                             case 2 :
                                 //c2.startAnimation(true1);
-                                c2.setBackgroundColor(Color.GREEN);
+                                c2.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                                c2.setTextColor(Color.WHITE);
                                 break;
                             case 3 :
                                 //c3.startAnimation(true1);
-                                c3.setBackgroundColor(Color.GREEN);
+                                c3.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                                c3.setTextColor(Color.WHITE);
                                 break;
                             case 4 :
                                 //c4.startAnimation(true1);
-                                c4.setBackgroundColor(Color.GREEN);
-
+                                c4.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                                c4.setTextColor(Color.WHITE);
                                 break;
                         }
 
@@ -138,15 +142,11 @@ public class Challenge extends AppCompatActivity {
                                 eachTurn(nb_rep);
                             }
                         }, duration); //delay is here
-
                     }
                     clickable = true;
                 }
             }
-
         });
-
-        //Handler(Looper.getMainLooper()).postDelayed(eachTurn(nb_rep) , 100);
 
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,7 +157,8 @@ public class Challenge extends AppCompatActivity {
                         nb_rep ++;
                         bonne_rep ++;
                         good = rd.nextInt(4)+1;
-                        c2.setBackgroundColor(Color.GREEN);
+                        c2.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                        c2.setTextColor(Color.WHITE);
                         Handler handler = new Handler();
                         handler.postDelayed(new Runnable(){
                             public void run() {
@@ -167,19 +168,23 @@ public class Challenge extends AppCompatActivity {
                     }
                     else {
                         c2.startAnimation(false1);
-                        c2.setBackgroundColor(Color.RED);
+                        c2.setBackgroundColor(getResources().getColor(R.color.bad_answer));
+                        c2.setTextColor(Color.WHITE);
                         switch (good){
                             case 1 :
                                 //c1.startAnimation(true1);
-                                c1.setBackgroundColor(Color.GREEN);
+                                c1.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                                c1.setTextColor(Color.WHITE);
                                 break;
                             case 3 :
                                 //c3.startAnimation(true1);
-                                c3.setBackgroundColor(Color.GREEN);
+                                c3.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                                c3.setTextColor(Color.WHITE);
                                 break;
                             case 4 :
                                 //c4.startAnimation(true1);
-                                c4.setBackgroundColor(Color.GREEN);
+                                c4.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                                c4.setTextColor(Color.WHITE);
                                 break;
                         }
 
@@ -205,7 +210,8 @@ public class Challenge extends AppCompatActivity {
                         nb_rep ++;
                         bonne_rep ++;
                         good = rd.nextInt(4)+1;
-                        c3.setBackgroundColor(Color.GREEN);
+                        c3.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                        c3.setTextColor(Color.WHITE);
                         Handler handler = new Handler();
                         handler.postDelayed(new Runnable(){
                             public void run() {
@@ -215,19 +221,22 @@ public class Challenge extends AppCompatActivity {
                     }
                     else {
                         c3.startAnimation(false1);
-                        c3.setBackgroundColor(Color.RED);
+                        c3.setBackgroundColor(getResources().getColor(R.color.bad_answer));
+                        c3.setTextColor(Color.WHITE);
                         switch (good){
                             case 2 :
                                 //c2.startAnimation(true1);
-                                c2.setBackgroundColor(Color.GREEN);
+                                c2.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                                c2.setTextColor(Color.WHITE);
                                 break;
                             case 1 :
                                 //c1.startAnimation(true1);
-                                c1.setBackgroundColor(Color.GREEN);
+                                c1.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                                c1.setTextColor(Color.WHITE);
                                 break;
                             case 4 :
-                                //c4.startAnimation(true1);
-                                c4.setBackgroundColor(Color.GREEN);
+                                c4.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                                c4.setTextColor(Color.WHITE);
                                 break;
                         }
 
@@ -253,7 +262,8 @@ public class Challenge extends AppCompatActivity {
                         nb_rep ++;
                         bonne_rep ++;
                         good = rd.nextInt(4)+1;
-                        c4.setBackgroundColor(Color.GREEN);
+                        c4.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                        c4.setTextColor(Color.WHITE);
                         Handler handler = new Handler();
                         handler.postDelayed(new Runnable(){
                             public void run() {
@@ -263,19 +273,20 @@ public class Challenge extends AppCompatActivity {
                     }
                     else {
                         c4.startAnimation(false1);
-                        c4.setBackgroundColor(Color.RED);
+                        c4.setBackgroundColor(getResources().getColor(R.color.bad_answer));
+                        c4.setTextColor(Color.WHITE);
                         switch (good){
                             case 2 :
-                                //c2.startAnimation(true1);
-                                c2.setBackgroundColor(Color.GREEN);
+                                c2.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                                c2.setTextColor(Color.WHITE);
                                 break;
                             case 3 :
-                                //c3.startAnimation(true1);
-                                c3.setBackgroundColor(Color.GREEN);
+                                c3.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                                c3.setTextColor(Color.WHITE);
                                 break;
                             case 1 :
-                                //c1.startAnimation(true1);
-                                c1.setBackgroundColor(Color.GREEN);
+                                c1.setBackgroundColor(getResources().getColor(R.color.good_answer));
+                                c1.setTextColor(Color.WHITE);
                                 break;
                         }
 
@@ -345,9 +356,13 @@ public class Challenge extends AppCompatActivity {
                     break;
             }
             c1.setBackgroundColor(Color.TRANSPARENT);
+            c1.setTextColor(getResources().getColor(R.color.green1));
             c2.setBackgroundColor(Color.TRANSPARENT);
+            c2.setTextColor(getResources().getColor(R.color.green1));
             c3.setBackgroundColor(Color.TRANSPARENT);
+            c3.setTextColor(getResources().getColor(R.color.green1));
             c4.setBackgroundColor(Color.TRANSPARENT);
+            c4.setTextColor(getResources().getColor(R.color.green1));
             Animation noanim = AnimationUtils.loadAnimation(Challenge.this, R.anim.emptyanim);
             c1.setAnimation(noanim);
             c2.setAnimation(noanim);
