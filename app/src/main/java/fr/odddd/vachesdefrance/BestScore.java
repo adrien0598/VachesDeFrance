@@ -9,6 +9,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,8 +23,10 @@ public class BestScore extends AppCompatActivity {
 
     private Integer[] score_photo;
     private Integer[] score_carac;
-    private Integer[] score_photo_rel;
-    private Integer[] score_carac_rel;
+    private Long[] temps_carac;
+    private Long[] temps_photo;
+    //private Integer[] score_photo_rel;
+    //private Integer[] score_carac_rel;
     private TextView photo_1;
     private TextView photo_2;
     private TextView photo_3;
@@ -38,6 +42,9 @@ public class BestScore extends AppCompatActivity {
     private TextView carac_6;
     private TextView carac_7;
     DataBaseHelper db;
+    private Button changement;
+    private boolean temps;
+    private TextView texte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +57,16 @@ public class BestScore extends AppCompatActivity {
                 true
         );
 
+        temps = false;
         score_photo = new Integer[7];
         score_carac = new Integer[7];
-        score_carac_rel = new Integer[8];
-        score_photo_rel = new Integer[8];
+        temps_photo = new Long[7];
+        temps_carac = new Long[7];
+        //score_carac_rel = new Integer[8];
+        //score_photo_rel = new Integer[8];
 
+        this.texte = findViewById(R.id.explication);
+        this.changement = (Button)findViewById(R.id.changement);
         this.photo_1 = (TextView)findViewById(R.id.photo_1);
         this.photo_2 = (TextView)findViewById(R.id.photo_2);
         this.photo_3 = (TextView)findViewById(R.id.photo_3);
@@ -72,17 +84,24 @@ public class BestScore extends AppCompatActivity {
 
         SharedPreferences score_p = getSharedPreferences("Score_photo", 0);
         SharedPreferences score_c = getSharedPreferences("Score_carac", 0);
-        SharedPreferences score_p_rel = getSharedPreferences("Score_photo_rel", 0);
-        SharedPreferences score_c_rel = getSharedPreferences("Score_carac_rel", 0);
+        SharedPreferences temps_p = getSharedPreferences("Time_photo", 0);
+        SharedPreferences temps_c = getSharedPreferences("Time_carac", 0);
+        //SharedPreferences score_p_rel = getSharedPreferences("Score_photo_rel", 0);
+        //SharedPreferences score_c_rel = getSharedPreferences("Score_carac_rel", 0);
 
         for (int i = 1; i < 8; i++) {
             score_photo[i-1] = score_p.getInt(String.valueOf(i), -1);
             score_carac[i-1] = score_c.getInt(String.valueOf(i), -1);
         }
+
         for (int i = 1; i < 8; i++) {
-            score_photo_rel[i-1] = score_p_rel.getInt(String.valueOf(i), -1);
-            score_carac_rel[i-1] = score_c_rel.getInt(String.valueOf(i), -1);
+            temps_photo[i-1] = temps_p.getLong(String.valueOf(i), -1);
+            temps_carac[i-1] = temps_c.getLong(String.valueOf(i), -1);
         }
+        //for (int i = 1; i < 8; i++) {
+        //    score_photo_rel[i-1] = score_p_rel.getInt(String.valueOf(i), -1);
+        //    score_carac_rel[i-1] = score_c_rel.getInt(String.valueOf(i), -1);
+        //}
 
         int color_good = Color.parseColor("#FF45B39D");
         int color_bad = Color.parseColor("#FF9c640c");
@@ -117,6 +136,63 @@ public class BestScore extends AppCompatActivity {
                 scores_c.get(i).setBackgroundColor(color_bad);
             }
         }
+
+        changement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!temps){
+                    changement.setText(getResources().getString(R.string.switch_to_pr));
+                    texte.setText(getResources().getString(R.string.mt_bestscore));
+
+                    for (int i = 0; i < 7; i++) {
+                        if (score_photo[i] == score_max.get(i)){
+                            scores_p.get(i).setText(timeWrite(temps_photo[i]));
+                            scores_p.get(i).setBackgroundColor(color_good);
+                        }
+                        else {
+                            scores_p.get(i).setText("");
+                        }
+                    }
+
+                    for (int i = 0; i < 7; i++) {
+                        if (score_carac[i] == score_max.get(i)){
+                            scores_c.get(i).setText(timeWrite(temps_carac[i]));
+                            scores_c.get(i).setBackgroundColor(color_good);
+                        }
+                        else {
+                            scores_c.get(i).setText("");
+                        }
+                    }
+                    temps = true;
+                }else{
+                    changement.setText(getResources().getString(R.string.switch_to_mt));
+                    texte.setText(getResources().getString(R.string.pr_bestscore));
+
+                    for (int i = 0; i < 7; i++) {
+                        if (score_photo[i] == score_max.get(i)){
+                            scores_p.get(i).setText("100");
+                            scores_p.get(i).setBackgroundColor(color_good);
+                        }
+                        else if (score_photo[i] >= 0){
+                            scores_p.get(i).setText(String.valueOf(Math.round(score_photo[i]*100/ score_max.get(i))));
+                            scores_p.get(i).setBackgroundColor(color_bad);
+                        }
+                    }
+
+                    for (int i = 0; i < 7; i++) {
+                        if (score_carac[i] == score_max.get(i)){
+                            scores_c.get(i).setText("100");
+                            scores_c.get(i).setBackgroundColor(color_good);
+                        }
+                        else if (score_carac[i] >= 0){
+                            scores_c.get(i).setText(String.valueOf(Math.round(score_carac[i]*100/ score_max.get(i))));
+                            scores_c.get(i).setBackgroundColor(color_bad);
+                        }
+                    }
+                    temps = false;
+                }
+            }
+        });
     }
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -133,5 +209,17 @@ public class BestScore extends AppCompatActivity {
         db = new DataBaseHelper(this);
         n = db.getAll_lvl(lvl).getCount();
         return n;
+    }
+
+    private String timeWrite(Long t){
+        String p;
+        if (t >= 1000*60){
+            int tmp = (int) (t/60000);
+            p = tmp + "m" + (t/1000)%60 + "s" + t%1000 + "ms";
+        }
+        else {
+            p = (t/1000)%60 + "s" + t%1000 + "ms";
+        }
+        return p;
     }
 }

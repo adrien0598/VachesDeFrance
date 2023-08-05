@@ -42,6 +42,11 @@ public class Challenge extends AppCompatActivity {
 
     private int lvl;
     private boolean clickable;
+    private TextView timer;
+    private boolean isRunning = false;
+    private long startTime = 0;
+    private Handler handler = new Handler();
+    private long t0;
 
 
     @Override
@@ -92,6 +97,13 @@ public class Challenge extends AppCompatActivity {
         int duration_t = 450;
         //int duration = 3000;
         clickable = true;
+
+        if (!isRunning) {
+            startTime = System.currentTimeMillis();
+            handler.post(stopwatchRunnable);
+            isRunning = true;
+        }
+        t0 = System.currentTimeMillis();
 
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -370,23 +382,31 @@ public class Challenge extends AppCompatActivity {
             c4.setAnimation(noanim);
         }
         else {
-            question.setText("C'est la fin !" + "\n" + "Vous avez " + bonne_rep + " réponses justes sur " + nb_rep);
+            if (isRunning) {
+                handler.removeCallbacks(stopwatchRunnable);
+                isRunning = false;
+            }
+            long t = System.currentTimeMillis() - t0;
+            int tmp = (int) (t/60000);
+            question.setText("C'est la fin !" + "\n" + "Vous avez " + bonne_rep +
+                    " réponses justes sur " + nb_rep + "\n" + "\n" + "Temps total : " +
+                    tmp + "m " + (t/1000)%60 + "s " + t%1000 + "ms");
 
-            SharedPreferences settings = getSharedPreferences("Score_carac", 0); // recup des meilleurs score photo
+            SharedPreferences best_score = getSharedPreferences("Score_carac", 0); // recup des meilleurs score photo
 
-            if (settings.getInt(String.valueOf(lvl), 0) < bonne_rep){
-                SharedPreferences.Editor editor = settings.edit();
+            if (best_score.getInt(String.valueOf(lvl), 0) < bonne_rep){
+                SharedPreferences.Editor editor = best_score.edit();
                 editor.putInt(String.valueOf(lvl), bonne_rep);
                 editor.apply();
             }
 
-            SharedPreferences score_rel = getSharedPreferences("Score_carac_rel", 0);
-            SharedPreferences.Editor editor = score_rel.edit();
-            int a = score_rel.getInt(String.valueOf((lvl*2)-1), 0);
-            int n = score_rel.getInt(String.valueOf(lvl*2), 0);
-            editor.putInt(String.valueOf((lvl*2)-1), a+bonne_rep);
-            editor.putInt(String.valueOf(lvl*2), n+1);
-            editor.apply();
+            SharedPreferences best_time = getSharedPreferences("Time_carac", 0); // recup des meilleurs temps photo
+            if (best_time.getLong(String.valueOf(lvl), -1) < t){
+                SharedPreferences.Editor editor = best_time.edit();
+                editor.putLong(String.valueOf(lvl), t);
+                editor.apply();
+                Log.d("score", "nouveau record");
+            }
 
             home.setVisibility(View.VISIBLE);
             ConstraintLayout lay = findViewById(R.id.la);
@@ -492,4 +512,17 @@ public class Challenge extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private Runnable stopwatchRunnable = new Runnable() {
+        @Override
+        public void run() {
+            long currentTime = System.currentTimeMillis() - startTime;
+            int seconds = (int) (currentTime / 1000);
+            int minutes = seconds / 60;
+            seconds = seconds % 60;
+
+            timer.setText(String.format("%02d:%02d", minutes, seconds));
+            handler.postDelayed(this, 100);
+        }
+    };
 }
