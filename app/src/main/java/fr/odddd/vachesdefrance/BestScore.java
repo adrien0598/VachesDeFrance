@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import fr.odddd.vachesdefrance.utils.TitleUtils;
+
 public class BestScore extends AppCompatActivity {
 
     private Integer[] score_photo;
@@ -33,10 +35,11 @@ public class BestScore extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_best_score);
 
-        ActionBar actionBar = getSupportActionBar();
-
-        // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        new TitleUtils().setTitle(
+                getSupportActionBar(),
+                R.string.title_app_bar_scores,
+                true
+        );
 
         score_photo = new Integer[4];
         score_carac = new Integer[4];

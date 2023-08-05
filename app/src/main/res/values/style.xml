@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ButtonType1" parent="Widget.AppCompat.Button">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:background">@drawable/bouton1_geom</item>
-        <item name="android:textSize">20sp</item>
-    </style>
-    <style name="ButtonType2" parent="Widget.AppCompat.Button">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:background">@drawable/bouton1_geom</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:backgroundTint">@drawable/bouton1_geom_clic</item>
-    </style>
     <style name="ButtonLvlLock" parent="Widget.AppCompat.Button">
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@drawable/border_loc</item>
@@ -28,5 +17,39 @@
         <item name="android:background">@drawable/border</item>
         <item name="android:textSize">20sp</item>
         <item name="android:backgroundTint">@drawable/bouton1_geom_clic</item>
+    </style>
+
+    <style name="Theme.VachesDeFrance.Button" parent="Widget.Material3.Button">
+        <item name="cornerRadius">30dp</item>
+    </style>
+
+    <style name="Theme.VachesDeFrance.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">?attr/colorPrimary</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="cornerRadius">30dp</item>
+    </style>
+
+    <style name="Theme.VachesDeFrance.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="titleTextColor">?attr/colorOnPrimary</item>
+        <item name="colorControlNormal">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Theme.VachesDeFrance.TextAppearance.TitleH2" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+
+    <style name="Theme.VachesDeFrance.TextAppearance.TitleH3" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+
+    <style name="Theme.VachesDeFrance.TextAppearance.Content" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="Theme.VachesDeFrance.TextAppearance.Score" parent="Theme.VachesDeFrance.TextAppearance.Content">
+        <item name="android:textSize">@dimen/text_size_score</item>
     </style>
 </resources>

@@ -25,6 +25,7 @@ import java.util.List;
 import fr.odddd.vachesdefrance.domain.VacheMieux;
 import fr.odddd.vachesdefrance.recyclerview.VacheAdapter;
 import fr.odddd.vachesdefrance.utils.BitmapUtils;
+import fr.odddd.vachesdefrance.utils.TitleUtils;
 
 
 public class Train_tab extends AppCompatActivity {
@@ -49,10 +50,11 @@ public class Train_tab extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_train_tab);
 
-        ActionBar actionBar = getSupportActionBar();
-
-        // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        new TitleUtils().setTitle(
+                getSupportActionBar(),
+                R.string.title_app_bar_entrainment,
+                true
+        );
 
         this.card = (CardView) findViewById(R.id.card);
         this.retour = (Button) findViewById(R.id.Retour);

@@ -21,6 +21,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.Random;
 
+import fr.odddd.vachesdefrance.utils.TitleUtils;
+
 public class Challenge extends AppCompatActivity {
 
     private Cursor l;
@@ -46,10 +48,11 @@ public class Challenge extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_challenge);
 
-        ActionBar actionBar = getSupportActionBar();
-
-        // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        new TitleUtils().setTitle(
+                getSupportActionBar(),
+                R.string.title_app_bar_challenge_cara,
+                true
+        );
 
         Intent i = getIntent();
         lvl = (int) i.getIntExtra("lvl",1);
