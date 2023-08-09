@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ButtonLvlLock" parent="Widget.AppCompat.Button">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:background">@drawable/border_loc</item>
+    <style name="Theme.VachesDeFrance.ButtonLvlLocked" parent="Widget.Material3.Button">
+        <item name="cornerRadius">15dp</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:backgroundTint">@drawable/bouton1_geom_clic</item>
+        <item name="android:background">@color/grey</item>
     </style>
-    <style name="ButtonLvlUnlock" parent="Widget.AppCompat.Button">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:background">@drawable/border_unl</item>
+
+    <style name="Theme.VachesDeFrance.ButtonLvlUnlocked" parent="Widget.Material3.Button">
+        <item name="cornerRadius">15dp</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:backgroundTint">@drawable/bouton1_geom_clic</item>
+        <item name="android:background">@color/brown</item>
     </style>
-    <style name="ButtonLvlCompleted" parent="Widget.AppCompat.Button">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:background">@drawable/border</item>
+
+    <style name="Theme.VachesDeFrance.ButtonLvlCompleted" parent="Widget.Material3.Button">
+        <item name="cornerRadius">15dp</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:backgroundTint">@drawable/bouton1_geom_clic</item>
     </style>
 
     <style name="Theme.VachesDeFrance.Button" parent="Widget.Material3.Button">

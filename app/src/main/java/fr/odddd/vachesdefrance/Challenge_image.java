@@ -125,6 +125,7 @@ public class Challenge_image extends AppCompatActivity {
                         handler.postDelayed(new Runnable(){
                             public void run() {
                                 eachTurn(nb_rep);
+                                clickable = true;
                             }
                         }, duration_t); //delay is here
                     }
@@ -157,10 +158,10 @@ public class Challenge_image extends AppCompatActivity {
                         handler.postDelayed(new Runnable(){
                             public void run() {
                                 eachTurn(nb_rep);
+                                clickable = true;
                             }
                         }, duration_f); //delay is here
                     }
-                    clickable = true;
                 }
             }
         });
@@ -180,6 +181,7 @@ public class Challenge_image extends AppCompatActivity {
                         handler.postDelayed(new Runnable(){
                             public void run() {
                                 eachTurn(nb_rep);
+                                clickable = true;
                             }
                         }, duration_t); //delay is here
                     }
@@ -211,10 +213,10 @@ public class Challenge_image extends AppCompatActivity {
                         handler.postDelayed(new Runnable(){
                             public void run() {
                                 eachTurn(nb_rep);
+                                clickable = true;
                             }
                         }, duration_f); //delay is here
                     }
-                    clickable = true;
                 }
             }
         });
@@ -233,6 +235,7 @@ public class Challenge_image extends AppCompatActivity {
                         handler.postDelayed(new Runnable(){
                             public void run() {
                                 eachTurn(nb_rep);
+                                clickable = true;
                             }
                         }, duration_t); //delay is here
                     }
@@ -264,10 +267,10 @@ public class Challenge_image extends AppCompatActivity {
                         handler.postDelayed(new Runnable(){
                             public void run() {
                                 eachTurn(nb_rep);
+                                clickable = true;
                             }
                         }, duration_f); //delay is here
                     }
-                    clickable = true;
                 }
             }
         });
@@ -286,6 +289,7 @@ public class Challenge_image extends AppCompatActivity {
                         handler.postDelayed(new Runnable(){
                             public void run() {
                                 eachTurn(nb_rep);
+                                clickable = true;
                             }
                         }, duration_t); //delay is here
                     }
@@ -317,10 +321,11 @@ public class Challenge_image extends AppCompatActivity {
                         handler.postDelayed(new Runnable(){
                             public void run() {
                                 eachTurn(nb_rep);
+                                clickable = true;
                             }
                         }, duration_f); //delay is here
                     }
-                    clickable = true;
+
                 }
             }
         });

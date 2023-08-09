@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             //public void onClick(View v) {System.exit(0);}
             public void onClick(View v) {
-            finish();
+            //finish();
         }
         });
 

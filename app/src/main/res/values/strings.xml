@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">VachesDeFrance</string>
     <string name="Challenge">Challenge</string>
-    <string name="Train">Entrainement</string>
+    <string name="Train">Encyclopédie</string>
     <string name="j1"><![CDATA[Challenge Caractéristiques]]></string>
     <string name="j2"><![CDATA[Challenge Photo]]></string>
     <string name="Titre">Les Vaches de France</string>
@@ -29,4 +29,5 @@
     <string name="switch_to_mt">Passer aux meilleurs temps</string>
     <string name="mt_bestscore">Meilleurs temps</string>
     <string name="switch_to_pr">Passer au pourcentages de réussite</string>
+    <string name="classement">…</string>
 </resources>
