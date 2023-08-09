@@ -64,4 +64,8 @@
     <style name="Theme.VachesDeFrance.TextAppearance.Score" parent="Theme.VachesDeFrance.TextAppearance.Content">
         <item name="android:textSize">@dimen/text_size_score</item>
     </style>
+
+    <style name="Theme.VachesDeFrance.TextAppearance.Time" parent="Theme.VachesDeFrance.TextAppearance.Content">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
 </resources>

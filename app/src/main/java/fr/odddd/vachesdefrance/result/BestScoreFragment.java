@@ -3,6 +3,7 @@ package fr.odddd.vachesdefrance.result;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -24,10 +25,6 @@ public class BestScoreFragment extends Fragment {
 
     private Integer[] score_photo;
     private Integer[] score_carac;
-    private Long[] temps_carac;
-    private Long[] temps_photo;
-    //private Integer[] score_photo_rel;
-    //private Integer[] score_carac_rel;
     private TextView photo_1;
     private TextView photo_2;
     private TextView photo_3;
@@ -43,11 +40,7 @@ public class BestScoreFragment extends Fragment {
     private TextView carac_6;
     private TextView carac_7;
     DataBaseHelper db;
-    private boolean temps;
-    private TextView texte;
-
     private FragmentBestScoreBinding binding;
-
     public BestScoreFragment() {
         super(R.layout.fragment_best_score);
     }
@@ -59,16 +52,9 @@ public class BestScoreFragment extends Fragment {
 
         binding = FragmentBestScoreBinding.inflate(getLayoutInflater());
 
-
-        temps = false;
         score_photo = new Integer[7];
         score_carac = new Integer[7];
-        temps_photo = new Long[7];
-        temps_carac = new Long[7];
-        //score_carac_rel = new Integer[8];
-        //score_photo_rel = new Integer[8];
 
-        this.texte = binding.explication;
         this.photo_1 = binding.photo1;
         this.photo_2 = binding.photo2;
         this.photo_3 = binding.photo3;
@@ -86,30 +72,16 @@ public class BestScoreFragment extends Fragment {
 
         SharedPreferences score_p = requireActivity().getSharedPreferences("Score_photo", 0);
         SharedPreferences score_c = requireActivity().getSharedPreferences("Score_carac", 0);
-        SharedPreferences temps_p = requireActivity().getSharedPreferences("Time_photo", 0);
-        SharedPreferences temps_c = requireActivity().getSharedPreferences("Time_carac", 0);
-        //SharedPreferences score_p_rel = getSharedPreferences("Score_photo_rel", 0);
-        //SharedPreferences score_c_rel = getSharedPreferences("Score_carac_rel", 0);
 
         for (int i = 1; i < 8; i++) {
             score_photo[i - 1] = score_p.getInt(String.valueOf(i), -1);
             score_carac[i - 1] = score_c.getInt(String.valueOf(i), -1);
         }
 
-        for (int i = 1; i < 8; i++) {
-            temps_photo[i - 1] = temps_p.getLong(String.valueOf(i), -1);
-            temps_carac[i - 1] = temps_c.getLong(String.valueOf(i), -1);
-        }
-        //for (int i = 1; i < 8; i++) {
-        //    score_photo_rel[i-1] = score_p_rel.getInt(String.valueOf(i), -1);
-        //    score_carac_rel[i-1] = score_c_rel.getInt(String.valueOf(i), -1);
-        //}
-
         int color_good = Color.parseColor("#FF45B39D");
         int color_bad = Color.parseColor("#FF9c640c");
 
         //photo
-
         List<TextView> scores_p = Arrays.asList(photo_1, photo_2, photo_3, photo_4, photo_5, photo_6, photo_7);
         List<Integer> score_max = Arrays.asList(getNbV(1), getNbV(2), getNbV(3), getNbV(4), getNbV(5), getNbV(6), getNbV(7));
 
@@ -117,14 +89,16 @@ public class BestScoreFragment extends Fragment {
             if (score_photo[i] == score_max.get(i)) {
                 scores_p.get(i).setText("100");
                 scores_p.get(i).setBackgroundColor(color_good);
+                Log.d("etat", "en effet yen a un mais affiche pas");
             } else if (score_photo[i] >= 0) {
                 scores_p.get(i).setText(String.valueOf(Math.round(score_photo[i] * 100 / score_max.get(i))));
                 scores_p.get(i).setBackgroundColor(color_bad);
+            }else {
+                scores_p.get(i).setText("0");
             }
         }
 
         //carac
-
         List<TextView> scores_c = Arrays.asList(carac_1, carac_2, carac_3, carac_4, carac_5, carac_6, carac_7);
 
         for (int i = 0; i < 7; i++) {
@@ -134,65 +108,10 @@ public class BestScoreFragment extends Fragment {
             } else if (score_carac[i] >= 0) {
                 scores_c.get(i).setText(String.valueOf(Math.round(score_carac[i] * 100 / score_max.get(i))));
                 scores_c.get(i).setBackgroundColor(color_bad);
+            }else {
+                scores_p.get(i).setText("0");
             }
         }
-
-        /*changement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!temps){
-                    changement.setText(getResources().getString(R.string.switch_to_pr));
-                    texte.setText(getResources().getString(R.string.mt_bestscore));
-
-                    for (int i = 0; i < 7; i++) {
-                        if (score_photo[i] == score_max.get(i)){
-                            scores_p.get(i).setText(timeWrite(temps_photo[i]));
-                            scores_p.get(i).setBackgroundColor(color_good);
-                        }
-                        else {
-                            scores_p.get(i).setText("");
-                        }
-                    }
-
-                    for (int i = 0; i < 7; i++) {
-                        if (score_carac[i] == score_max.get(i)){
-                            scores_c.get(i).setText(timeWrite(temps_carac[i]));
-                            scores_c.get(i).setBackgroundColor(color_good);
-                        }
-                        else {
-                            scores_c.get(i).setText("");
-                        }
-                    }
-                    temps = true;
-                }else{
-                    changement.setText(getResources().getString(R.string.switch_to_mt));
-                    texte.setText(getResources().getString(R.string.pr_bestscore));
-
-                    for (int i = 0; i < 7; i++) {
-                        if (score_photo[i] == score_max.get(i)){
-                            scores_p.get(i).setText("100");
-                            scores_p.get(i).setBackgroundColor(color_good);
-                        }
-                        else if (score_photo[i] >= 0){
-                            scores_p.get(i).setText(String.valueOf(Math.round(score_photo[i]*100/ score_max.get(i))));
-                            scores_p.get(i).setBackgroundColor(color_bad);
-                        }
-                    }
-
-                    for (int i = 0; i < 7; i++) {
-                        if (score_carac[i] == score_max.get(i)){
-                            scores_c.get(i).setText("100");
-                            scores_c.get(i).setBackgroundColor(color_good);
-                        }
-                        else if (score_carac[i] >= 0){
-                            scores_c.get(i).setText(String.valueOf(Math.round(score_carac[i]*100/ score_max.get(i))));
-                            scores_c.get(i).setBackgroundColor(color_bad);
-                        }
-                    }
-                    temps = false;
-                }
-            }
-        });*/
     }
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

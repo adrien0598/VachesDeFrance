@@ -14,7 +14,6 @@ import android.database.Cursor;
 import java.io.IOException;
 
 import fr.odddd.vachesdefrance.result.BestResultActivity;
-import fr.odddd.vachesdefrance.result.BestScore;
 
 public class MainActivity extends AppCompatActivity {
 

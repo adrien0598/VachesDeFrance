@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".result.BestScore">
+    tools:context=".result.BestTimeFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.05" />
+                app:layout_constraintGuide_begin="21dp" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_droite"
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_xlarge"
-                android:text="fezfvedsfvdsvds"
+                android:text="@string/carac"
                 app:layout_constraintEnd_toStartOf="@+id/photo"
                 app:layout_constraintStart_toEndOf="@+id/level"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -86,10 +86,9 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/carac_1"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_1"
@@ -99,10 +98,9 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/photo_1"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_1"
@@ -124,10 +122,9 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/carac_2"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_2"
@@ -137,10 +134,9 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/photo_2"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_2"
@@ -162,10 +158,9 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/carac_3"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_3"
@@ -175,10 +170,9 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/photo_3"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_3"
@@ -200,10 +194,9 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/carac_4"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_4"
@@ -213,10 +206,9 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/photo_4"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_4"
@@ -237,10 +229,9 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/carac_5"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_5"
@@ -250,10 +241,9 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/photo_5"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_5"
@@ -274,10 +264,9 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/carac_6"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_6"
@@ -287,10 +276,9 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/photo_6"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_6"
@@ -311,10 +299,9 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/carac_7"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_7"
@@ -324,27 +311,15 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/photo_7"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="@dimen/size_score"
+                style="@style/Theme.VachesDeFrance.TextAppearance.Time"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/size_score"
-                android:background="@color/grey"
                 android:gravity="center"
                 android:text="0"
                 app:layout_constraintBottom_toBottomOf="@+id/level_7"
                 app:layout_constraintEnd_toEndOf="@+id/photo"
                 app:layout_constraintStart_toStartOf="@+id/photo"
                 app:layout_constraintTop_toTopOf="@+id/level_7" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/explication"
-                style="@style/Theme.VachesDeFrance.TextAppearance.Score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_xlarge"
-                android:text="@string/pr_bestscore"
-                app:layout_constraintEnd_toEndOf="@+id/guideline_droite"
-                app:layout_constraintStart_toStartOf="@+id/guideline_gauche"
-                app:layout_constraintTop_toBottomOf="@+id/level_7" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
