@@ -83,6 +83,7 @@ public class Challenge extends AppCompatActivity {
         this.c2 = (Button)findViewById(R.id.c2);
         this.c3 = (Button)findViewById(R.id.c3);
         this.c4 = (Button)findViewById(R.id.c4);
+        this.timer = (TextView)findViewById(R.id.timer);
         this.home = (Button)findViewById(R.id.button_end);
         this.score = (TextView)findViewById(R.id.score_num);
 

@@ -18,6 +18,7 @@
     </style>
 
     <style name="Theme.VachesDeFrance.Button" parent="Widget.Material3.Button">
+        <item name="android:textSize">@dimen/text_size_medium</item>
         <item name="cornerRadius">30dp</item>
     </style>
 
