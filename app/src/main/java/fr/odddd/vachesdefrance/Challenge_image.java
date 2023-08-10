@@ -420,7 +420,7 @@ public class Challenge_image extends AppCompatActivity {
             }
 
             SharedPreferences best_time = getSharedPreferences("Time_photo", 0); // recup des meilleurs temps photo
-            if (best_time.getLong(String.valueOf(lvl), -1) > t) {
+            if (best_time.getLong(String.valueOf(lvl), 1000000000) > t) {
                 SharedPreferences.Editor editor = best_time.edit();
                 editor.putLong(String.valueOf(lvl), t);
                 editor.apply();
