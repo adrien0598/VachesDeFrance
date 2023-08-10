@@ -4,13 +4,14 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import java.util.Arrays;
@@ -19,7 +20,6 @@ import java.util.List;
 import fr.odddd.vachesdefrance.DataBaseHelper;
 import fr.odddd.vachesdefrance.R;
 import fr.odddd.vachesdefrance.databinding.FragmentBestScoreBinding;
-import fr.odddd.vachesdefrance.utils.TitleUtils;
 
 public class BestScoreFragment extends Fragment {
 
@@ -41,16 +41,22 @@ public class BestScoreFragment extends Fragment {
     private TextView carac_7;
     DataBaseHelper db;
     private FragmentBestScoreBinding binding;
+
     public BestScoreFragment() {
         super(R.layout.fragment_best_score);
     }
 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        binding = FragmentBestScoreBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
+    }
+
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        //binding = FragmentBestScoreBinding.inflate(getLayoutInflater());
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         score_photo = new Integer[7];
         score_carac = new Integer[7];
@@ -70,7 +76,7 @@ public class BestScoreFragment extends Fragment {
         this.carac_6 = binding.carac6;
         this.carac_7 = binding.carac7;
 
-        photo_1.setText("test"); //test plus simple
+        carac_1.setText("test"); //test plus simple
 
         SharedPreferences score_p = requireActivity().getSharedPreferences("Score_photo", 0);
         SharedPreferences score_c = requireActivity().getSharedPreferences("Score_carac", 0);
@@ -95,7 +101,7 @@ public class BestScoreFragment extends Fragment {
             } else if (score_photo[i] >= 0) {
                 scores_p.get(i).setText(String.valueOf(Math.round(score_photo[i] * 100 / score_max.get(i))));
                 scores_p.get(i).setBackgroundColor(color_bad);
-            }else {
+            } else {
                 scores_p.get(i).setText("0");
             }
         }
@@ -110,7 +116,7 @@ public class BestScoreFragment extends Fragment {
             } else if (score_carac[i] >= 0) {
                 scores_c.get(i).setText(String.valueOf(Math.round(score_carac[i] * 100 / score_max.get(i))));
                 scores_c.get(i).setBackgroundColor(color_bad);
-            }else {
+            } else {
                 scores_p.get(i).setText("0");
             }
         }
