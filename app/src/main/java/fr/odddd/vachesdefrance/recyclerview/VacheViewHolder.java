@@ -34,7 +34,7 @@ public class VacheViewHolder extends BaseViewHolder<VacheMieux, ItemVacheAdapter
     }
 
 
-    static public VacheViewHolder getObject(ViewGroup parent,Function1<VacheMieux, Void> oVC) {
+    static public VacheViewHolder getObject(ViewGroup parent, Function1<VacheMieux, Void> oVC) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         ItemVacheAdapterBinding b = ItemVacheAdapterBinding.inflate(layoutInflater, parent, false);
         return new VacheViewHolder(b, oVC);

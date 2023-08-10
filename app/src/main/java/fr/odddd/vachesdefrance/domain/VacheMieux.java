@@ -10,10 +10,10 @@ public class VacheMieux {
     private String niveau;
 
     public VacheMieux(String race, Drawable photo, Drawable photoCompressed, String niveau) {
-        this.race= race;
-        this.photo= photo;
-        this.photoCompressed= photoCompressed;
-        this.niveau= niveau;
+        this.race = race;
+        this.photo = photo;
+        this.photoCompressed = photoCompressed;
+        this.niveau = niveau;
     }
 
     public String getNiveau() {
@@ -21,7 +21,7 @@ public class VacheMieux {
     }
 
     public String getNiveauString() {
-        return  "Niveau " + niveau;
+        return "Niveau " + niveau;
     }
 
     public void setNiveau(String niveau) {
@@ -48,8 +48,5 @@ public class VacheMieux {
         return photoCompressed;
     }
 
-    public void setPhotoCompressed(Drawable photo) {
-        this.photoCompressed = photo;
-    }
 
 }

@@ -8,9 +8,9 @@ public class Vache {
     private int niveau;
 
     public Vache(String race, String photo, int niveau) {
-        this.race= race;
-        this.photo= photo;
-        this.niveau= niveau;
+        this.race = race;
+        this.photo = photo;
+        this.niveau = niveau;
     }
 
     public int getNiveau() {
@@ -18,7 +18,7 @@ public class Vache {
     }
 
     public String getNiveauString() {
-        return  "Niveau " + niveau;
+        return "Niveau " + niveau;
     }
 
     public void setPopulation(int niveau) {

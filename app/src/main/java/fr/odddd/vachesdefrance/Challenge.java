@@ -25,7 +25,6 @@ import fr.odddd.vachesdefrance.utils.TitleUtils;
 
 public class Challenge extends AppCompatActivity {
 
-    private Cursor l;
     public String[][] donnees;
     DataBaseHelper db;
     private TextView score;
@@ -39,7 +38,6 @@ public class Challenge extends AppCompatActivity {
     public int good;
     public int nb_rep = 0;
     public int bonne_rep = 0;
-
     private int lvl;
     private boolean clickable;
     private TextView timer;
@@ -61,42 +59,39 @@ public class Challenge extends AppCompatActivity {
         );
 
         Intent i = getIntent();
-        lvl = (int) i.getIntExtra("lvl",1);
+        lvl = (int) i.getIntExtra("lvl", 1);
 
         db = new DataBaseHelper(this);
-        if (lvl < 7 ){
+        Cursor l;
+        if (lvl < 7) {
             l = db.getAll_lvl(lvl);
-        }
-        else {
+        } else {
             l = db.getAll();
         }
 
-        if (l.getCount() == 0){
+        if (l.getCount() == 0) {
             Log.d("etat", "base vide");
-        }
-        else {
+        } else {
             donnees = CursorToListRd(l);
         }
 
-        this.question = (TextView)findViewById(R.id.question);
-        this.c1 = (Button)findViewById(R.id.c1);
-        this.c2 = (Button)findViewById(R.id.c2);
-        this.c3 = (Button)findViewById(R.id.c3);
-        this.c4 = (Button)findViewById(R.id.c4);
-        this.timer = (TextView)findViewById(R.id.timer);
-        this.home = (Button)findViewById(R.id.button_end);
-        this.score = (TextView)findViewById(R.id.score_num);
+        this.question = (TextView) findViewById(R.id.question);
+        this.c1 = (Button) findViewById(R.id.c1);
+        this.c2 = (Button) findViewById(R.id.c2);
+        this.c3 = (Button) findViewById(R.id.c3);
+        this.c4 = (Button) findViewById(R.id.c4);
+        this.timer = (TextView) findViewById(R.id.timer);
+        this.home = (Button) findViewById(R.id.button_end);
+        this.score = (TextView) findViewById(R.id.score_num);
 
         Animation false1 = AnimationUtils.loadAnimation(Challenge.this, R.anim.falseanim);
-        //Animation true1 = AnimationUtils.loadAnimation(Challenge.this, R.anim.trueanim);
 
         Random rd = new Random();
-        good = rd.nextInt(4)+1;
+        good = rd.nextInt(4) + 1;
         eachTurn(nb_rep);
 
         int duration_f = 750;
         int duration_t = 450;
-        //int duration = 3000;
         clickable = true;
 
         if (!isRunning) {
@@ -109,49 +104,48 @@ public class Challenge extends AppCompatActivity {
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(clickable) {
+                if (clickable) {
                     clickable = false;
-                    if(good == 1){
-                        nb_rep ++;
-                        bonne_rep ++;
-                        good = rd.nextInt(4)+1;
+                    if (good == 1) {
+                        nb_rep++;
+                        bonne_rep++;
+                        good = rd.nextInt(4) + 1;
                         c1.setBackgroundColor(getResources().getColor(R.color.good_answer));
                         c1.setTextColor(Color.WHITE);
                         Handler handler = new Handler();
-                        handler.postDelayed(new Runnable(){
+                        handler.postDelayed(new Runnable() {
                             public void run() {
                                 eachTurn(nb_rep);
                                 clickable = true;
                             }
                         }, duration_t); //delay is here
-                    }
-                    else {
+                    } else {
                         c1.startAnimation(false1);
                         c1.setBackgroundColor(getResources().getColor(R.color.bad_answer));
                         c1.setTextColor(Color.WHITE);
-                        switch (good){
-                            case 2 :
+                        switch (good) {
+                            case 2:
                                 //c2.startAnimation(true1);
                                 c2.setBackgroundColor(getResources().getColor(R.color.good_answer));
                                 c2.setTextColor(Color.WHITE);
                                 break;
-                            case 3 :
+                            case 3:
                                 //c3.startAnimation(true1);
                                 c3.setBackgroundColor(getResources().getColor(R.color.good_answer));
                                 c3.setTextColor(Color.WHITE);
                                 break;
-                            case 4 :
+                            case 4:
                                 //c4.startAnimation(true1);
                                 c4.setBackgroundColor(getResources().getColor(R.color.good_answer));
                                 c4.setTextColor(Color.WHITE);
                                 break;
                         }
 
-                        nb_rep ++;
-                        good = rd.nextInt(4)+1;
+                        nb_rep++;
+                        good = rd.nextInt(4) + 1;
 
                         Handler handler = new Handler();
-                        handler.postDelayed(new Runnable(){
+                        handler.postDelayed(new Runnable() {
                             public void run() {
                                 eachTurn(nb_rep);
                                 clickable = true;
@@ -165,48 +159,47 @@ public class Challenge extends AppCompatActivity {
         c2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(clickable) {
+                if (clickable) {
                     clickable = false;
-                    if(good == 2){
-                        nb_rep ++;
-                        bonne_rep ++;
-                        good = rd.nextInt(4)+1;
+                    if (good == 2) {
+                        nb_rep++;
+                        bonne_rep++;
+                        good = rd.nextInt(4) + 1;
                         c2.setBackgroundColor(getResources().getColor(R.color.good_answer));
                         c2.setTextColor(Color.WHITE);
                         Handler handler = new Handler();
-                        handler.postDelayed(new Runnable(){
+                        handler.postDelayed(new Runnable() {
                             public void run() {
                                 eachTurn(nb_rep);
                                 clickable = true;
                             }
                         }, duration_t); //delay is here
-                    }
-                    else {
+                    } else {
                         c2.startAnimation(false1);
                         c2.setBackgroundColor(getResources().getColor(R.color.bad_answer));
                         c2.setTextColor(Color.WHITE);
-                        switch (good){
-                            case 1 :
+                        switch (good) {
+                            case 1:
                                 //c1.startAnimation(true1);
                                 c1.setBackgroundColor(getResources().getColor(R.color.good_answer));
                                 c1.setTextColor(Color.WHITE);
                                 break;
-                            case 3 :
+                            case 3:
                                 //c3.startAnimation(true1);
                                 c3.setBackgroundColor(getResources().getColor(R.color.good_answer));
                                 c3.setTextColor(Color.WHITE);
                                 break;
-                            case 4 :
+                            case 4:
                                 //c4.startAnimation(true1);
                                 c4.setBackgroundColor(getResources().getColor(R.color.good_answer));
                                 c4.setTextColor(Color.WHITE);
                                 break;
                         }
 
-                        nb_rep ++;
-                        good = rd.nextInt(4)+1;
+                        nb_rep++;
+                        good = rd.nextInt(4) + 1;
                         Handler handler = new Handler();
-                        handler.postDelayed(new Runnable(){
+                        handler.postDelayed(new Runnable() {
                             public void run() {
                                 eachTurn(nb_rep);
                                 clickable = true;
@@ -219,47 +212,46 @@ public class Challenge extends AppCompatActivity {
         c3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(clickable) {
+                if (clickable) {
                     clickable = false;
-                    if(good == 3){
-                        nb_rep ++;
-                        bonne_rep ++;
-                        good = rd.nextInt(4)+1;
+                    if (good == 3) {
+                        nb_rep++;
+                        bonne_rep++;
+                        good = rd.nextInt(4) + 1;
                         c3.setBackgroundColor(getResources().getColor(R.color.good_answer));
                         c3.setTextColor(Color.WHITE);
                         Handler handler = new Handler();
-                        handler.postDelayed(new Runnable(){
+                        handler.postDelayed(new Runnable() {
                             public void run() {
                                 eachTurn(nb_rep);
                                 clickable = true;
                             }
                         }, duration_t); //delay is here
-                    }
-                    else {
+                    } else {
                         c3.startAnimation(false1);
                         c3.setBackgroundColor(getResources().getColor(R.color.bad_answer));
                         c3.setTextColor(Color.WHITE);
-                        switch (good){
-                            case 2 :
+                        switch (good) {
+                            case 2:
                                 //c2.startAnimation(true1);
                                 c2.setBackgroundColor(getResources().getColor(R.color.good_answer));
                                 c2.setTextColor(Color.WHITE);
                                 break;
-                            case 1 :
+                            case 1:
                                 //c1.startAnimation(true1);
                                 c1.setBackgroundColor(getResources().getColor(R.color.good_answer));
                                 c1.setTextColor(Color.WHITE);
                                 break;
-                            case 4 :
+                            case 4:
                                 c4.setBackgroundColor(getResources().getColor(R.color.good_answer));
                                 c4.setTextColor(Color.WHITE);
                                 break;
                         }
 
-                        nb_rep ++;
-                        good = rd.nextInt(4)+1;
+                        nb_rep++;
+                        good = rd.nextInt(4) + 1;
                         Handler handler = new Handler();
-                        handler.postDelayed(new Runnable(){
+                        handler.postDelayed(new Runnable() {
                             public void run() {
                                 eachTurn(nb_rep);
                                 clickable = true;
@@ -272,45 +264,44 @@ public class Challenge extends AppCompatActivity {
         c4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(clickable) {
+                if (clickable) {
                     clickable = false;
-                    if(good == 4){
-                        nb_rep ++;
-                        bonne_rep ++;
-                        good = rd.nextInt(4)+1;
+                    if (good == 4) {
+                        nb_rep++;
+                        bonne_rep++;
+                        good = rd.nextInt(4) + 1;
                         c4.setBackgroundColor(getResources().getColor(R.color.good_answer));
                         c4.setTextColor(Color.WHITE);
                         Handler handler = new Handler();
-                        handler.postDelayed(new Runnable(){
+                        handler.postDelayed(new Runnable() {
                             public void run() {
                                 eachTurn(nb_rep);
                                 clickable = true;
                             }
                         }, duration_t); //delay is here
-                    }
-                    else {
+                    } else {
                         c4.startAnimation(false1);
                         c4.setBackgroundColor(getResources().getColor(R.color.bad_answer));
                         c4.setTextColor(Color.WHITE);
-                        switch (good){
-                            case 2 :
+                        switch (good) {
+                            case 2:
                                 c2.setBackgroundColor(getResources().getColor(R.color.good_answer));
                                 c2.setTextColor(Color.WHITE);
                                 break;
-                            case 3 :
+                            case 3:
                                 c3.setBackgroundColor(getResources().getColor(R.color.good_answer));
                                 c3.setTextColor(Color.WHITE);
                                 break;
-                            case 1 :
+                            case 1:
                                 c1.setBackgroundColor(getResources().getColor(R.color.good_answer));
                                 c1.setTextColor(Color.WHITE);
                                 break;
                         }
 
-                        nb_rep ++;
-                        good = rd.nextInt(4)+1;
+                        nb_rep++;
+                        good = rd.nextInt(4) + 1;
                         Handler handler = new Handler();
-                        handler.postDelayed(new Runnable(){
+                        handler.postDelayed(new Runnable() {
                             public void run() {
                                 eachTurn(nb_rep);
                                 clickable = true;
@@ -331,37 +322,38 @@ public class Challenge extends AppCompatActivity {
 
     }
 
-    public void eachTurn(int nb_rep){
+    public void eachTurn(int nb_rep) {
 
         score.setText(bonne_rep + "");
-        if(nb_rep < donnees.length){
+        if (nb_rep < donnees.length) {
 
-            String carac = "Robe : " + donnees[nb_rep][1] + "\n" + "\n" + "Type : " + donnees[nb_rep][2] + "\n" + "\n" +"Région : " + donnees[nb_rep][3];
+            String carac = "Robe : " + donnees[nb_rep][1] + "\n" + "\n" + "Type : " + donnees[nb_rep][2] + "\n" + "\n" + "Région : " + donnees[nb_rep][3];
             String race = donnees[nb_rep][0];
             question.setText(carac);
-            String[] tmp = tirage(decoupe(donnees, 0, nb_rep), 3);switch (good){
-                case 1 :
+            String[] tmp = tirage(decoupe(donnees, 0, nb_rep), 3);
+            switch (good) {
+                case 1:
                     Log.d("etat", "le 1");
                     c1.setText(race);
                     c2.setText(tmp[0]);
                     c3.setText(tmp[1]);
                     c4.setText(tmp[2]);
                     break;
-                case 2 :
+                case 2:
                     Log.d("etat", "le 2");
                     c2.setText(race);
                     c1.setText(tmp[0]);
                     c3.setText(tmp[1]);
                     c4.setText(tmp[2]);
                     break;
-                case 3 :
+                case 3:
                     Log.d("etat", "le 3");
                     c3.setText(race);
                     c1.setText(tmp[0]);
                     c2.setText(tmp[1]);
                     c4.setText(tmp[2]);
                     break;
-                case 4 :
+                case 4:
                     Log.d("etat", "le 4");
                     c4.setText(race);
                     c2.setText(tmp[0]);
@@ -385,28 +377,40 @@ public class Challenge extends AppCompatActivity {
             c2.setAnimation(noanim);
             c3.setAnimation(noanim);
             c4.setAnimation(noanim);
-        }
-        else {
+        } else {
             if (isRunning) {
                 handler.removeCallbacks(stopwatchRunnable);
                 isRunning = false;
             }
             long t = System.currentTimeMillis() - t0;
-            int tmp = (int) (t/60000);
-            question.setText("C'est la fin !" + "\n" + "Vous avez " + bonne_rep +
-                    " réponses justes sur " + nb_rep + "\n" + "\n" + "Temps total : " +
-                    tmp + "m " + (t/1000)%60 + "s " + t%1000 + "ms");
+            int tmp = (int) (t / 60000);
+
+            String finalText = "";
+            if (bonne_rep == nb_rep) {
+                finalText = "Félicitation !" + "\n" + "\n"+ "\n"  + "Vous avez " + bonne_rep +
+                        " réponses justes sur " + nb_rep + "\n" + "\n"+ "\n"  + "Temps total : " +
+                        tmp + "m " + (t / 1000) % 60 + "s " + t % 1000 + "ms";
+            } else if (bonne_rep > 0) {
+                finalText = "C'est la fin !" + "\n" + "\n"+ "\n"  + "Vous avez " + bonne_rep +
+                        " réponses justes sur " + nb_rep + "\n" + "\n"+ "\n"  + "Encore un peu d'entrainement !";
+            } else {
+                finalText = "C'est la fin !" + "\n" + "\n"+ "\n"  + "Vous avez " + bonne_rep +
+                        " réponses justes sur " + nb_rep + "\n" + "\n"+ "\n"  + "Courage vous pouvez faire mieu !";
+            }
+
+            question.setTextSize(2, 24);
+            question.setText(finalText);
 
             SharedPreferences best_score = getSharedPreferences("Score_carac", 0); // recup des meilleurs score photo
 
-            if (best_score.getInt(String.valueOf(lvl), 0) < bonne_rep){
+            if (best_score.getInt(String.valueOf(lvl), 0) < bonne_rep) {
                 SharedPreferences.Editor editor = best_score.edit();
                 editor.putInt(String.valueOf(lvl), bonne_rep);
                 editor.apply();
             }
 
             SharedPreferences best_time = getSharedPreferences("Time_carac", 0); // recup des meilleurs temps photo
-            if (best_time.getLong(String.valueOf(lvl), -1) < t){
+            if (best_time.getLong(String.valueOf(lvl), -1) < t) {
                 SharedPreferences.Editor editor = best_time.edit();
                 editor.putLong(String.valueOf(lvl), t);
                 editor.apply();
@@ -423,22 +427,21 @@ public class Challenge extends AppCompatActivity {
         }
     }
 
-    public String[] decoupe(String[][] liste, int n, int except){
+    public String[] decoupe(String[][] liste, int n, int except) {
         String[] tmp = new String[liste.length - 1];
         int i = 0;
         while (i < liste.length) {
-            if (i < except){
+            if (i < except) {
                 tmp[i] = liste[i][n];
-            }
-            else if (i > except){
-                tmp[i-1] = liste[i][n];
+            } else if (i > except) {
+                tmp[i - 1] = liste[i][n];
             }
             i++;
         }
         return tmp;
     }
 
-    public String[][] CursorToListRd(Cursor curseur){
+    public String[][] CursorToListRd(Cursor curseur) {
         String[][] liste_1;
         liste_1 = new String[curseur.getCount()][4];
         int[] random = melange(curseur.getCount());
@@ -447,33 +450,35 @@ public class Challenge extends AppCompatActivity {
             liste_1[j][0] = curseur.getString(0);
             liste_1[j][1] = curseur.getString(1);
             liste_1[j][2] = curseur.getString(2);
-            liste_1[j][3] = curseur.getString(3);}
+            liste_1[j][3] = curseur.getString(3);
+        }
         return liste_1;
     }
 
-    public String[] CursorToList(Cursor curseur){
+    public String[] CursorToList(Cursor curseur) {
         String[] liste_2;
         liste_2 = new String[curseur.getCount()];
         for (int j = 0; j < curseur.getCount(); j++) {
             curseur.moveToPosition(j);
-            liste_2[j] = curseur.getString(0);}
+            liste_2[j] = curseur.getString(0);
+        }
         return liste_2;
     }
 
-    public int[] melange(int nb){
+    public int[] melange(int nb) {
         int[] tir = new int[nb];
         Random rd = new Random();
         Log.d("etat", "debut melange");
         int i = -1;
         int cont = nb;
 
-        while (cont > 1){
-            while (contains(tir, i)){
+        while (cont > 1) {
+            while (contains(tir, i)) {
                 i = rd.nextInt(nb);
 
             }
             Log.d("i", String.valueOf(i));
-            tir[cont-1] = i;
+            tir[cont - 1] = i;
             cont -= 1;
         }
         tir[0] = 0;
@@ -481,18 +486,18 @@ public class Challenge extends AppCompatActivity {
         return tir;
     }
 
-    public String[] tirage(String[] pool, int nb){
+    public String[] tirage(String[] pool, int nb) {
         int[] tir = new int[pool.length];
         String[] tir_name = new String[pool.length];
         Random rd = new Random();
         int i = -1;
 
-        while (nb > 0){
-            while (contains(tir, i)){
+        while (nb > 0) {
+            while (contains(tir, i)) {
                 i = rd.nextInt(pool.length);
             }
-            tir[nb-1] = i;
-            tir_name[nb-1] = pool[i];
+            tir[nb - 1] = i;
+            tir_name[nb - 1] = pool[i];
             nb -= 1;
         }
 
@@ -500,12 +505,13 @@ public class Challenge extends AppCompatActivity {
     }
 
     private boolean contains(int[] liste, int a) {
-        if (a == -1){
+        if (a == -1) {
             return true;
         }
-        for (int i = 0; i < liste.length; i ++){
+        for (int i = 0; i < liste.length; i++) {
             if (liste[i] == a)
-                return true;}
+                return true;
+        }
         return false;
     }
 

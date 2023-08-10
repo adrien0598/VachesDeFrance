@@ -24,24 +24,18 @@ import java.util.List;
 
 import fr.odddd.vachesdefrance.domain.VacheMieux;
 import fr.odddd.vachesdefrance.recyclerview.VacheAdapter;
-import fr.odddd.vachesdefrance.utils.BitmapUtils;
 import fr.odddd.vachesdefrance.utils.TitleUtils;
 
 
 public class Train_tab extends AppCompatActivity {
 
     private Cursor l;
-    private String[][] donnees;
-
-    private Button retour;
     private CardView card;
     private ImageView photo;
     private TextView race;
     private TextView type;
     private TextView region;
-
     private boolean clikable;
-
     DataBaseHelper db;
 
 
@@ -57,7 +51,7 @@ public class Train_tab extends AppCompatActivity {
         );
 
         this.card = (CardView) findViewById(R.id.card);
-        this.retour = (Button) findViewById(R.id.Retour);
+        Button retour = (Button) findViewById(R.id.Retour);
         this.photo = (ImageView) findViewById(R.id.Image);
         this.race = (TextView) findViewById(R.id.Race);
         this.type = (TextView) findViewById(R.id.Type_des);
@@ -74,11 +68,11 @@ public class Train_tab extends AppCompatActivity {
         for (int j = 0; j < list_vaches.size(); j++) {
             Vache vache = list_vaches.get(j);
             int resId = getResources().getIdentifier(vache.getPhoto(), "drawable", getPackageName());
-            Drawable drawable  = getDrawable(resId);
+            Drawable drawable = getDrawable(resId);
             //TODO
             int resIdCompressed = getResources().getIdentifier(vache.getPhoto() + "_small", "drawable", getPackageName());
-            Drawable drawableCompressed  = getDrawable(resIdCompressed);
-            list_vaches_with_bitmap.add(new VacheMieux(vache.getRace(), drawable, drawableCompressed,vache.getNiveau() + ""));
+            Drawable drawableCompressed = getDrawable(resIdCompressed);
+            list_vaches_with_bitmap.add(new VacheMieux(vache.getRace(), drawable, drawableCompressed, vache.getNiveau() + ""));
         }
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         VacheAdapter vacheAdapter = new VacheAdapter(
@@ -143,7 +137,6 @@ public class Train_tab extends AppCompatActivity {
         return list;
     }
 
-
     private String raceToId(String nom) {
         String id = "";
 
@@ -172,10 +165,9 @@ public class Train_tab extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            this.finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

@@ -10,20 +10,26 @@ public class Lvl {
     private boolean isblocked;
 
     public Lvl(String nb, String niveau, Drawable block, boolean isblocked) {
-        this.nb= nb;
-        this.niveau= niveau;
+        this.nb = nb;
+        this.niveau = niveau;
         this.block = block;
         this.isblocked = isblocked;
     }
 
-    public Drawable getLock(){return block;}
-    public Boolean getIsBlocked(){return isblocked;}
+    public Drawable getLock() {
+        return block;
+    }
+
+    public Boolean getIsBlocked() {
+        return isblocked;
+    }
+
     public String getNiveau() {
         return niveau;
     }
 
     public String getNiveauString() {
-        return  "Niveau " + niveau;
+        return "Niveau " + niveau;
     }
 
     public void setNiveau(String niveau) {
@@ -31,7 +37,7 @@ public class Lvl {
     }
 
     public String getNb() {
-        return "Vaches : " +nb;
+        return "Vaches : " + nb;
     }
 
     public void setNb(String nb) {

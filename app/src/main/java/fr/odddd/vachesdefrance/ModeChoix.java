@@ -20,7 +20,6 @@ public class ModeChoix extends AppCompatActivity {
     private Button j1;
     private Button j2;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +31,8 @@ public class ModeChoix extends AppCompatActivity {
                 true
         );
 
-        this.j1 = (Button)findViewById(R.id.j1);
-        this.j2 = (Button)findViewById(R.id.j2);
+        this.j1 = (Button) findViewById(R.id.j1);
+        this.j2 = (Button) findViewById(R.id.j2);
 
         j1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,11 +52,11 @@ public class ModeChoix extends AppCompatActivity {
             }
         });
     }
+
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            this.finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

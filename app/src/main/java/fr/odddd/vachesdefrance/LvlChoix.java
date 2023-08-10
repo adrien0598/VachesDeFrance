@@ -24,14 +24,9 @@ import fr.odddd.vachesdefrance.utils.TitleUtils;
 public class LvlChoix extends AppCompatActivity {
 
     private Cursor l;
-    private String[][] donnees;
-
     public String mode;
-
     private boolean clikable;
-
     private Intent otherActivity;
-
     DataBaseHelper db;
 
 
@@ -154,10 +149,9 @@ public class LvlChoix extends AppCompatActivity {
 
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            this.finish();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

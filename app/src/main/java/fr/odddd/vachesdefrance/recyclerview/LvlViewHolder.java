@@ -33,7 +33,6 @@ public class LvlViewHolder extends BaseViewHolder<Lvl, ItemLvlAdapterBinding> {
         });
     }
 
-
     static public LvlViewHolder getObject(ViewGroup parent, Function1<Lvl, Void> oVC) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         ItemLvlAdapterBinding b = ItemLvlAdapterBinding.inflate(layoutInflater, parent, false);

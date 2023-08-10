@@ -17,14 +17,8 @@ import fr.odddd.vachesdefrance.result.BestResultActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView plage;
-    private Cursor l;
-    public String[][] donnees;
-
     private Button challenge;
     private Button train;
-
-    private Integer[] version;
     private Button score;
     private Button quitter;
 
@@ -48,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         // version de l'appli (database, découpage lvl etc)
         int v = 1;
         SharedPreferences version = getSharedPreferences("version_app", 0);
-        if (version.getInt("version", -1) < v){
+        if (version.getInt("version", -1) < v) {
             //reset best score
             SharedPreferences settings = getSharedPreferences("Score_photo", 0); // recup des meilleurs score photo absolu
             SharedPreferences.Editor editor = settings.edit();
@@ -69,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
             editor2.apply();
         }
 
-        this.challenge = (Button)findViewById(R.id.challenge);
-        this.train = (Button)findViewById(R.id.train);
-        this.score = (Button)findViewById(R.id.score);
-        this.quitter = (Button)findViewById(R.id.quitter);
+        this.challenge = (Button) findViewById(R.id.challenge);
+        this.train = (Button) findViewById(R.id.train);
+        this.score = (Button) findViewById(R.id.score);
+        this.quitter = (Button) findViewById(R.id.quitter);
 
         challenge.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             //public void onClick(View v) {System.exit(0);}
             public void onClick(View v) {
-            //finish();
-        }
+                //finish();
+            }
         });
 
     }

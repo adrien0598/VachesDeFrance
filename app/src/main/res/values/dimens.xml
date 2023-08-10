@@ -22,7 +22,7 @@
 
 
     <dimen name="text_size_score">20sp</dimen>
-    <dimen name="text_size_carac">28sp</dimen>
+    <dimen name="text_size_carac">27sp</dimen>
 
     <!-- Margin / Padding sizes -->
     <!--
