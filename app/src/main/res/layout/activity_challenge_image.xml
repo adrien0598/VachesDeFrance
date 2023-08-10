@@ -44,6 +44,19 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintRight_toRightOf="@id/guideline8"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nul"
+        android:textSize="20sp"
+        android:textColor="@color/brown"
+        app:layout_constraintLeft_toLeftOf="@id/guideline7"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintRight_toRightOf="@id/guideline5a"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <TextView
         android:id="@+id/score_num"
         android:layout_width="wrap_content"

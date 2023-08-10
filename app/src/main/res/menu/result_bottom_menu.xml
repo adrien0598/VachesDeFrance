@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/best_score"
+        android:title="@string/result_activity_menu_score"
+        android:icon="@drawable/ic_score" />
+    <item android:id="@+id/best_time"
+        android:title="@string/result_activity_menu_time"
+        android:icon="@drawable/ic_time" />
+</menu>

@@ -6,13 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.database.Cursor;
 
 import java.io.IOException;
+
+import fr.odddd.vachesdefrance.result.BestResultActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         score.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent otherActivity = new Intent(getApplicationContext(), BestScore.class);
+                Intent otherActivity = new Intent(getApplicationContext(), BestResultActivity.class);
                 startActivity(otherActivity);
             }
         });
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             //public void onClick(View v) {System.exit(0);}
             public void onClick(View v) {
-            finish();
+            //finish();
         }
         });
 

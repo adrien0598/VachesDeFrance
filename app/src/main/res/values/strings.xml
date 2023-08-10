@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">VachesDeFrance</string>
     <string name="Challenge">Challenge</string>
-    <string name="Train">Entrainement</string>
+    <string name="Train">Encyclopédie</string>
     <string name="j1"><![CDATA[Challenge Caractéristiques]]></string>
     <string name="j2"><![CDATA[Challenge Photo]]></string>
     <string name="Titre">Les Vaches de France</string>
@@ -15,14 +15,20 @@
     <string name="type"><u>Type :</u></string>
     <string name="best_score">Meilleurs scores</string>
     <string name="carac">Caractéristiques</string>
-    <string name="photo">Photographie</string>
+    <string name="photo">Photographies</string>
     <string name="niv_select">Sélection du mode</string>
+
+    <!--Result Activity Menu-->
+    <string name="result_activity_menu_score">Score</string>
+    <string name="result_activity_menu_time">Temps</string>
 
     <!--Title action bar-->
     <string name="title_app_bar_scores">Meilleurs scores</string>
+    <string name="title_app_bar_temps">Meilleurs temps</string>
     <string name="title_app_bar_entrainment">Entrainement</string>
     <string name="title_app_bar_challenge_mode_choice">Sélection du mode</string>
     <string name="title_app_bar_challenge_lvl_choice">Challenge</string>
     <string name="title_app_bar_challenge_cara">Challenge caractéristiques</string>
     <string name="title_app_bar_challenge_photo">Challenge photos</string>
+    <string name="classement">…</string>
 </resources>
