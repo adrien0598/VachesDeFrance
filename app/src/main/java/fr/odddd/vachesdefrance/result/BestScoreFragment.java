@@ -76,8 +76,6 @@ public class BestScoreFragment extends Fragment {
         this.carac_6 = binding.carac6;
         this.carac_7 = binding.carac7;
 
-        carac_1.setText("test"); //test plus simple
-
         SharedPreferences score_p = requireActivity().getSharedPreferences("Score_photo", 0);
         SharedPreferences score_c = requireActivity().getSharedPreferences("Score_carac", 0);
 
@@ -86,7 +84,7 @@ public class BestScoreFragment extends Fragment {
             score_carac[i - 1] = score_c.getInt(String.valueOf(i), -1);
         }
 
-        int color_good = Color.parseColor("#FF45B39D");
+        int color_good = Color.parseColor("#FF8BC34A");
         int color_bad = Color.parseColor("#FF9c640c");
 
         //photo
@@ -97,11 +95,10 @@ public class BestScoreFragment extends Fragment {
             if (score_photo[i] == score_max.get(i)) {
                 scores_p.get(i).setText("100");
                 scores_p.get(i).setBackgroundColor(color_good);
-                Log.d("etat", "en effet yen a un mais affiche pas");
             } else if (score_photo[i] >= 0) {
                 scores_p.get(i).setText(String.valueOf(Math.round(score_photo[i] * 100 / score_max.get(i))));
                 scores_p.get(i).setBackgroundColor(color_bad);
-            } else {
+            } else if (score_photo[i] == -1){
                 scores_p.get(i).setText("0");
             }
         }
@@ -116,8 +113,8 @@ public class BestScoreFragment extends Fragment {
             } else if (score_carac[i] >= 0) {
                 scores_c.get(i).setText(String.valueOf(Math.round(score_carac[i] * 100 / score_max.get(i))));
                 scores_c.get(i).setBackgroundColor(color_bad);
-            } else {
-                scores_p.get(i).setText("0");
+            } else if (score_carac[i] == -1){
+                scores_c.get(i).setText("0");
             }
         }
     }
