@@ -50,7 +50,7 @@ public class BestScoreFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = FragmentBestScoreBinding.inflate(getLayoutInflater());
+        //binding = FragmentBestScoreBinding.inflate(getLayoutInflater());
 
         score_photo = new Integer[7];
         score_carac = new Integer[7];
@@ -69,6 +69,8 @@ public class BestScoreFragment extends Fragment {
         this.carac_5 = binding.carac5;
         this.carac_6 = binding.carac6;
         this.carac_7 = binding.carac7;
+
+        photo_1.setText("test"); //test plus simple
 
         SharedPreferences score_p = requireActivity().getSharedPreferences("Score_photo", 0);
         SharedPreferences score_c = requireActivity().getSharedPreferences("Score_carac", 0);
