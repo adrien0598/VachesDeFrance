@@ -138,14 +138,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    public Cursor getRace() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String requete = "SELECT race FROM caracteristiques";
-        Cursor result = db.rawQuery(requete, null);
-        Log.d("requete", requete);
-        return result;
-    }
-
     public Cursor getType(String race) {
         SQLiteDatabase db = this.getWritableDatabase();
         String requete = "SELECT type FROM caracteristiques WHERE race == " + '"' + race + '"';

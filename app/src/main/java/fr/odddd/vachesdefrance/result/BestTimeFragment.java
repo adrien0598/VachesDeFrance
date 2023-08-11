@@ -128,7 +128,11 @@ public class BestTimeFragment extends Fragment {
     private int getNbV(int lvl) {
         int n = 0;
         db = new DataBaseHelper(requireContext());
-        n = db.getAll_lvl(lvl).getCount();
+        if (lvl != 7){
+            n = db.getAll_lvl(lvl).getCount();
+        } else {
+            n = db.getAll().getCount();
+        }
         return n;
     }
 
